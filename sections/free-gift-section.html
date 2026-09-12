@@ -1,0 +1,120 @@
+<!-- ============================================================
+     FREE GIFT SECTION — bloco de brinde (3 pares de meias)
+     Cole este bloco inteiro em um elemento "HTML/Liquid" do PageFly
+     ou em uma Custom Liquid section do tema Shopify.
+     Todos os estilos estao escopados em .fg-card__* para nao
+     conflitar com o CSS do tema.
+     ============================================================ -->
+<style>
+  .fg-card {
+    /* ---- Personalize aqui ---- */
+    --fg-badge-bg: #1c7a46;        /* verde do selo FREE GIFT */
+    --fg-badge-color: #ffffff;
+    --fg-border: #e6e6e6;          /* borda do card */
+    --fg-radius: 12px;
+    --fg-media-bg: #f5f5f5;        /* fundo cinza da area da imagem */
+    --fg-title-color: #111111;
+    --fg-text-color: #8f8f8f;
+    --fg-max-width: 340px;         /* use 100% para ocupar a coluna toda */
+    /* -------------------------- */
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--fg-max-width);
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid var(--fg-border);
+    border-radius: var(--fg-radius);
+    overflow: hidden;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .fg-card *,
+  .fg-card *::before,
+  .fg-card *::after { box-sizing: border-box; }
+
+  /* Area da imagem + selo */
+  .fg-card__media {
+    position: relative;
+    background: var(--fg-media-bg);
+    aspect-ratio: 16 / 10;          /* mantem a proporcao do print */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+  }
+
+  .fg-card__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;            /* use "cover" se a foto for sangrada */
+  }
+
+  .fg-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    display: inline-block;
+    background: var(--fg-badge-bg);
+    color: var(--fg-badge-color);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* Textos */
+  .fg-card__body { padding: 16px 16px 20px; }
+
+  .fg-card__title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.28;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--fg-title-color);
+  }
+
+  .fg-card__subtitle {
+    margin: 8px 0 0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--fg-text-color);
+  }
+
+  /* Telas pequenas */
+  @media (max-width: 400px) {
+    .fg-card__title { font-size: 16px; }
+    .fg-card__subtitle { font-size: 12.5px; }
+    .fg-card__body { padding: 14px 14px 18px; }
+  }
+</style>
+
+<div class="fg-card">
+  <div class="fg-card__media">
+    <span class="fg-card__badge">Free Gift</span>
+    <!-- Troque o src pela URL da sua imagem (Shopify > Content > Files) -->
+    <img
+      src="https://cdn.shopify.com/s/files/1/0000/0000/files/free-gift-socks.png"
+      alt="3 pares de meias premium oferecidos como brinde"
+      loading="lazy"
+      width="600"
+      height="375"
+    >
+  </div>
+
+  <div class="fg-card__body">
+    <h3 class="fg-card__title">Buy today &amp; get 3 pairs of premium socks free</h3>
+    <p class="fg-card__subtitle">Limited-time offer &mdash; automatically added to your order</p>
+  </div>
+</div>

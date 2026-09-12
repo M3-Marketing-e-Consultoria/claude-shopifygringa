@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview - Free Gift Section</title>
+<style>
+  body { margin: 0; padding: 40px 16px; background: #fafafa;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<style>
+  .fg-card {
+    --fg-badge-bg: #1c7a46;
+    --fg-badge-color: #ffffff;
+    --fg-border: #e6e6e6;
+    --fg-radius: 12px;
+    --fg-media-bg: #f5f5f5;
+    --fg-title-color: #111111;
+    --fg-text-color: #8f8f8f;
+    --fg-max-width: 340px;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--fg-max-width);
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid var(--fg-border);
+    border-radius: var(--fg-radius);
+    overflow: hidden;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+  }
+  .fg-card *, .fg-card *::before, .fg-card *::after { box-sizing: border-box; }
+  .fg-card__media {
+    position: relative; background: var(--fg-media-bg);
+    aspect-ratio: 16 / 10; display: flex; align-items: center;
+    justify-content: center; padding: 18px;
+  }
+  .fg-card__media img { display: block; width: 100%; height: 100%; max-width: 100%; object-fit: contain; }
+  .fg-card__badge {
+    position: absolute; top: 12px; left: 12px; z-index: 2; display: inline-block;
+    background: var(--fg-badge-bg); color: var(--fg-badge-color);
+    font-size: 11px; font-weight: 700; line-height: 1; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 7px 10px; border-radius: 4px; white-space: nowrap;
+  }
+  .fg-card__body { padding: 16px 16px 20px; }
+  .fg-card__title {
+    margin: 0; font-size: 17px; font-weight: 800; line-height: 1.28;
+    letter-spacing: 0.01em; text-transform: uppercase; color: var(--fg-title-color);
+  }
+  .fg-card__subtitle {
+    margin: 8px 0 0; font-size: 13px; font-weight: 400; line-height: 1.45; color: var(--fg-text-color);
+  }
+  @media (max-width: 400px) {
+    .fg-card__title { font-size: 16px; }
+    .fg-card__subtitle { font-size: 12.5px; }
+    .fg-card__body { padding: 14px 14px 18px; }
+  }
+</style>
+
+<div class="fg-card">
+  <div class="fg-card__media">
+    <span class="fg-card__badge">Free Gift</span>
+    <!-- placeholder apenas para o preview: substitua pela foto real -->
+    <svg viewBox="0 0 600 375" role="img" aria-label="3 pares de meias premium e embalagens">
+      <g fill="#ffffff" stroke="#dcdcdc" stroke-width="2">
+        <path d="M60 70 h46 v150 q0 26 -26 30 -26 4 -30 -22 -3 -22 10 -30 V70 Z"/>
+        <path d="M130 70 h46 v150 q0 26 -26 30 -26 4 -30 -22 -3 -22 10 -30 V70 Z"/>
+        <path d="M200 70 h46 v150 q0 26 -26 30 -26 4 -30 -22 -3 -22 10 -30 V70 Z"/>
+        <rect x="330" y="45" width="70" height="200" rx="8"/>
+        <rect x="410" y="60" width="70" height="185" rx="8"/>
+        <rect x="490" y="75" width="70" height="170" rx="8"/>
+      </g>
+      <g fill="#111111" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+        <text x="83" y="110">ᐯ</text><text x="153" y="110">ᐯ</text><text x="223" y="110">ᐯ</text>
+        <text x="365" y="105">ᐯ</text><text x="445" y="118">ᐯ</text><text x="525" y="130">ᐯ</text>
+      </g>
+      <g fill="#d9d9d9">
+        <rect x="60" y="225" width="46" height="14" rx="4"/>
+        <rect x="130" y="225" width="46" height="14" rx="4"/>
+        <rect x="200" y="225" width="46" height="14" rx="4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="fg-card__body">
+    <h3 class="fg-card__title">Buy today &amp; get 3 pairs of premium socks free</h3>
+    <p class="fg-card__subtitle">Limited-time offer &mdash; automatically added to your order</p>
+  </div>
+</div>
+
+</body>
+</html>
