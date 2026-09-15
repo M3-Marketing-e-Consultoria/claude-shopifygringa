@@ -1,0 +1,100 @@
+<!-- ============================================================
+     WHY THIS VERSION SECTION — titulo + lista de beneficios
+     Cole este bloco inteiro em um elemento "HTML/Liquid" do PageFly
+     ou em uma Custom Liquid section do tema Shopify.
+     Estilos escopados em .ev-why__* para nao conflitar com o tema.
+     ============================================================ -->
+<style>
+  .ev-why {
+    /* ---- Personalize aqui ---- */
+    --ev-why-ink: #111111;         /* cor do titulo */
+    --ev-why-label: #8a8f98;       /* cor do label "WHY THIS VERSION" */
+    --ev-why-text: #4b5563;        /* cor dos itens da lista */
+    --ev-why-bullet: #111111;      /* cor da bolinha */
+    --ev-why-max-width: 640px;     /* use 100% para ocupar a coluna toda */
+    --ev-why-title-size: 30px;
+    /* -------------------------- */
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--ev-why-max-width);
+    margin: 0 auto;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ev-why *,
+  .ev-why *::before,
+  .ev-why *::after { box-sizing: border-box; }
+
+  .ev-why__label {
+    margin: 0 0 14px;
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ev-why-label);
+  }
+
+  .ev-why__title {
+    margin: 0 0 22px;
+    font-size: var(--ev-why-title-size);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--ev-why-ink);
+  }
+
+  .ev-why__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ev-why__item {
+    position: relative;
+    padding-left: 22px;
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--ev-why-text);
+  }
+
+  .ev-why__item:last-child { margin-bottom: 0; }
+
+  .ev-why__item::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0.62em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ev-why-bullet);
+  }
+
+  @media (max-width: 480px) {
+    .ev-why { --ev-why-title-size: 25px; }
+    .ev-why__item { font-size: 13.5px; }
+  }
+</style>
+
+<div class="ev-why">
+
+  <p class="ev-why__label">Why This Version</p>
+
+  <h2 class="ev-why__title">
+    Built for Versatility.<br>
+    Designed for Now.
+  </h2>
+
+  <ul class="ev-why__list">
+    <li class="ev-why__item">Durable engineered upper combining structure and flexibility</li>
+    <li class="ev-why__item">Modern sculpted sole for confident everyday movement</li>
+    <li class="ev-why__item">Versatile design that transitions effortlessly between settings</li>
+    <li class="ev-why__item">Contemporary aesthetic with functional performance details</li>
+  </ul>
+
+</div>

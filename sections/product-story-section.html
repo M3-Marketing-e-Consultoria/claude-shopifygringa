@@ -1,0 +1,129 @@
+<!-- ============================================================
+     PRODUCT STORY SECTION — "Limited-time pricing" + "Limited release"
+     Cole este bloco inteiro em um elemento "HTML/Liquid" do PageFly
+     ou em uma Custom Liquid section do tema Shopify.
+     Todos os estilos estao escopados em .ev-story__* para nao
+     conflitar com o CSS do tema.
+     ============================================================ -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+  .ev-story {
+    /* ---- Personalize aqui ---- */
+    --ev-ink: #111111;             /* cor dos titulos e labels */
+    --ev-muted: #6b7280;           /* cor dos paragrafos */
+    --ev-max-width: 640px;         /* use 100% para ocupar a coluna toda */
+    --ev-display: 'Anton', 'Oswald', 'Arial Narrow', Impact, sans-serif;
+    --ev-title-size: 34px;         /* tamanho do titulo grande */
+    /* -------------------------- */
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--ev-max-width);
+    margin: 0 auto;
+    font-family: inherit;
+    color: var(--ev-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ev-story *,
+  .ev-story *::before,
+  .ev-story *::after { box-sizing: border-box; }
+
+  /* ---- Eyebrow (label pequeno com traco ou ponto) ---- */
+  .ev-story__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ev-ink);
+  }
+
+  .ev-story__rule {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--ev-ink);
+    flex: 0 0 auto;
+  }
+
+  .ev-story__dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ev-ink);
+    flex: 0 0 auto;
+  }
+
+  /* ---- Paragrafos ---- */
+  .ev-story__text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--ev-muted);
+  }
+
+  /* ---- Titulo grande condensado ---- */
+  .ev-story__title {
+    margin: 0 0 16px;
+    font-family: var(--ev-display);
+    font-size: var(--ev-title-size);
+    font-weight: 400;             /* Anton so tem um peso */
+    line-height: 1.02;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: var(--ev-ink);
+  }
+
+  /* ---- Espacamento entre os dois blocos ---- */
+  .ev-story__block + .ev-story__block { margin-top: 40px; }
+
+  @media (max-width: 480px) {
+    .ev-story { --ev-title-size: 28px; }
+    .ev-story__text { font-size: 13.5px; }
+    .ev-story__block + .ev-story__block { margin-top: 32px; }
+  }
+</style>
+
+<div class="ev-story">
+
+  <!-- Bloco 1: aviso de preco promocional -->
+  <div class="ev-story__block">
+    <p class="ev-story__eyebrow">
+      <span class="ev-story__rule"></span>
+      Limited-Time Pricing
+    </p>
+    <p class="ev-story__text">
+      Current price reflects a temporary markdown. Standard retail pricing will
+      resume once inventory resets.
+    </p>
+  </div>
+
+  <!-- Bloco 2: titulo + descricao do produto -->
+  <div class="ev-story__block">
+    <p class="ev-story__eyebrow">
+      <span class="ev-story__dot"></span>
+      Limited Release
+    </p>
+    <h2 class="ev-story__title">
+      Soft Support.<br>
+      Everyday Comfort.
+    </h2>
+    <p class="ev-story__text">
+      Engineered for long-lasting comfort and stability, this design blends advanced
+      cushioning with a structured silhouette to support your feet throughout the day.
+      The responsive sole helps absorb impact with every step, reducing pressure on key
+      areas while maintaining a confident, modern look. Ideal for daily wear, it delivers
+      reliable comfort without compromising style &mdash; so you can move naturally, feel
+      supported, and stay comfortable from morning to night.
+    </p>
+  </div>
+
+</div>
