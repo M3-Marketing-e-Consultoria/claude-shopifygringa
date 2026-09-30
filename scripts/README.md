@@ -1,7 +1,8 @@
 # device-redirect.js
 
-Manda al visitante de ESCRITORIO a la home (`https://cozatti.shop/`).
-El visitante de MOVIL se queda y ve la landing normalmente.
+Actua SOLO en las rutas listadas en `LANDING_PATHS`, dentro del propio
+script. En esas paginas: escritorio -> home, movil se queda. En todo el
+resto de la tienda no hace nada, se pegue donde se pegue.
 
 ## Donde ponerlo
 
@@ -22,9 +23,8 @@ Pega esto **dentro de `<head>`, lo mas arriba posible**, antes de cualquier CSS:
 {%- endif -%}
 ```
 
-El `{% if %}` limita el redirect a esa sola pagina de producto. Sin el, el
-script corre en toda la tienda — funciona igual (el guardia n.o 6 evita el
-bucle), pero estarias echando gente de la home y de las demas paginas.
+Ya no hace falta envolverlo en `{% if %}`: la trava de rutas vive dentro del
+script (`LANDING_PATHS`). Pegarlo suelto en `theme.liquid` es seguro.
 
 ### Opcion B — en el Custom JS de PageFly
 

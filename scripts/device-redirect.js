@@ -1,48 +1,67 @@
 /* =====================================================================
-   Cozatti — el visitante de ESCRITORIO se va a la home.
-   El visitante de MOVIL se queda y ve la landing normalmente.
+   Cozatti — redireccion SOLO en la landing de PageFly.
+
+   En la landing:  escritorio -> home | movil -> se queda y la ve.
+   En CUALQUIER otra pagina de la tienda: no hace absolutamente nada.
+
+   La lista de paginas esta abajo, en LANDING_PATHS.
    ===================================================================== */
 (function () {
   'use strict';
 
+  /* ---------------- Configuracion ---------------- */
+
+  // Las UNICAS rutas donde este script actua. Todo lo demas queda intacto.
+  // Agrega una linea por cada landing que quieras tratar igual.
+  var LANDING_PATHS = [
+    '/products/morral-y-cosmetiquera-100-originales-en-cuero'
+  ];
+
   var TARGET     = 'https://cozatti.shop/';
   var BREAKPOINT = 768;   // px — hasta aqui cuenta como movil
 
+  /* ----------------------------------------------- */
+
   try {
     var loc    = window.location;
-    var path   = loc.pathname;
     var search = loc.search;
     var ua     = navigator.userAgent || '';
 
-    // 1. Nunca dentro de un iframe (editor de tema, editor de PageFly).
-    //    Sin esto no podrias editar la pagina desde el computador.
+    // --- 1. LA TRAVA: ¿estamos en una de las landings? ---
+    // Normaliza: minusculas, sin barra final, sin prefijo de idioma (/es, /en-co).
+    var current = loc.pathname.toLowerCase().replace(/\/+$/, '');
+    current = current.replace(/^\/[a-z]{2}(-[a-z]{2})?(?=\/)/, '');
+
+    var onLanding = false;
+    for (var i = 0; i < LANDING_PATHS.length; i++) {
+      if (current === LANDING_PATHS[i].toLowerCase().replace(/\/+$/, '')) {
+        onLanding = true;
+        break;
+      }
+    }
+    if (!onLanding) return;   // <-- el resto de la tienda sale por aqui
+
+    // --- 2. De aqui para abajo, ya sabemos que estamos en la landing ---
+
+    // Nunca dentro de un iframe (editor de tema, editor de PageFly)
     if (window.top !== window.self) return;
 
-    // 2. Nunca en el editor de tema de Shopify
+    // Nunca en el editor de tema de Shopify
     if (window.Shopify && window.Shopify.designMode) return;
 
-    // 3. Nunca en la vista previa de PageFly ni en previews de tema
-    if (path.indexOf('/apps/pagefly') === 0) return;
+    // Nunca en previews
     if (search.indexOf('pf_source') !== -1) return;
     if (search.indexOf('preview_theme_id') !== -1) return;
 
-    // 4. Nunca a los rastreadores. Googlebot, el crawler de Meta y el
-    //    revisor de landing pages de Google Ads TIENEN que ver la pagina:
-    //    si los rebotas, te pueden rechazar la campana y el SEO cae.
+    // Nunca a los rastreadores: Googlebot, el crawler de Meta y el revisor
+    // de landing pages de Google Ads tienen que poder ver la pagina.
     if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|facebookcatalog|twitterbot|linkedinbot|whatsapp|telegrambot|embedly|pinterest|applebot|lighthouse|pagespeed|gtmetrix|adsbot/i.test(ua)) return;
 
-    // 5. Valvula de escape, para que tu puedas abrirla en el computador:
-    //    https://cozatti.shop/products/...?noredirect=1
+    // Valvula de escape para abrirla tu mismo en el computador:
+    // ...?noredirect=1
     if (search.indexOf('noredirect') !== -1) return;
 
-    // 6. Si ya estamos en la home, no redirigir. Esto evita el bucle
-    //    infinito si el script termina cargado en toda la tienda.
-    var target = document.createElement('a');
-    target.href = TARGET;
-    if (loc.hostname === target.hostname &&
-        path.replace(/\/+$/, '') === target.pathname.replace(/\/+$/, '')) return;
-
-    // 7. Deteccion de movil
+    // --- 3. Deteccion de movil ---
     var isMobile;
     var uaData = navigator.userAgentData;
 
@@ -60,15 +79,13 @@
       isMobile = true;
     }
 
-    // 8. Es movil -> se queda. Es escritorio -> a la home.
+    // --- 4. Movil se queda. Escritorio a la home. ---
     if (isMobile) return;
 
-    // replace() y no href: asi el boton "atras" no lo devuelve a la landing,
-    // lo que lo dejaria rebotando entre las dos paginas.
+    // replace() y no href: asi el boton "atras" no lo devuelve a la landing.
     loc.replace(TARGET);
 
   } catch (e) {
-    // Pase lo que pase, el redirect nunca debe romper la pagina.
     if (window.console && console.warn) console.warn('device-redirect:', e);
   }
 })();
