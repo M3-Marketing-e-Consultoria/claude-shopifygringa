@@ -1,19 +1,7 @@
 # device-redirect.js
 
-Manda un tipo de visitante a la home (`https://cozatti.shop/`) y deja al otro
-ver la landing.
-
-## Elegir la direccion
-
-Al principio de `device-redirect.js`:
-
-```js
-var REDIRECT_WHEN = 'desktop';   // el escritorio se va, el movil se queda
-var REDIRECT_WHEN = 'mobile';    // el movil se va, el escritorio se queda
-```
-
-Esta en `'desktop'`, que es lo que acompana a una landing hecha solo para
-telefono.
+Manda al visitante de ESCRITORIO a la home (`https://cozatti.shop/`).
+El visitante de MOVIL se queda y ve la landing normalmente.
 
 ## Donde ponerlo
 

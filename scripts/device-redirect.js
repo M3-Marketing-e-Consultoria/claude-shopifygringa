@@ -1,35 +1,21 @@
 /* =====================================================================
-   Redireccion por dispositivo — Cozatti
-   ---------------------------------------------------------------------
-   Manda a un tipo de visitante a la home y deja al otro ver la pagina.
-
-   Cambia REDIRECT_WHEN para elegir QUIEN se va:
-     'desktop' -> el visitante de ESCRITORIO se va a la home
-                  (el movil se queda y ve la landing)
-     'mobile'  -> el visitante de MOVIL se va a la home
-                  (el escritorio se queda)
-
-   Donde ponerlo: ver scripts/README.md
+   Cozatti — el visitante de ESCRITORIO se va a la home.
+   El visitante de MOVIL se queda y ve la landing normalmente.
    ===================================================================== */
 (function () {
   'use strict';
 
-  /* ---------------- Configuracion ---------------- */
-
-  var REDIRECT_WHEN = 'desktop';        // 'desktop' | 'mobile'
-  var TARGET        = 'https://cozatti.shop/';
-  var BREAKPOINT    = 768;              // px — hasta aqui cuenta como movil
-
-  /* ----------------------------------------------- */
+  var TARGET     = 'https://cozatti.shop/';
+  var BREAKPOINT = 768;   // px — hasta aqui cuenta como movil
 
   try {
-    var loc = window.location;
-    var path = loc.pathname;
+    var loc    = window.location;
+    var path   = loc.pathname;
     var search = loc.search;
-    var ua = navigator.userAgent || '';
+    var ua     = navigator.userAgent || '';
 
-    // 1. Nunca dentro de un iframe (editor de tema, editor de PageFly,
-    //    vista previa incrustada). Sin esto no se puede editar la pagina.
+    // 1. Nunca dentro de un iframe (editor de tema, editor de PageFly).
+    //    Sin esto no podrias editar la pagina desde el computador.
     if (window.top !== window.self) return;
 
     // 2. Nunca en el editor de tema de Shopify
@@ -42,22 +28,21 @@
 
     // 4. Nunca a los rastreadores. Googlebot, el crawler de Meta y el
     //    revisor de landing pages de Google Ads TIENEN que ver la pagina:
-    //    si los rebotas, la campana puede quedar rechazada y el SEO cae.
+    //    si los rebotas, te pueden rechazar la campana y el SEO cae.
     if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|facebookcatalog|twitterbot|linkedinbot|whatsapp|telegrambot|embedly|pinterest|applebot|lighthouse|pagespeed|gtmetrix|adsbot/i.test(ua)) return;
 
-    // 5. Valvula de escape manual, para que tu puedas abrirla igual:
+    // 5. Valvula de escape, para que tu puedas abrirla en el computador:
     //    https://cozatti.shop/products/...?noredirect=1
     if (search.indexOf('noredirect') !== -1) return;
 
-    // 6. Si ya estamos en el destino, no redirigir. Esto es lo que evita
-    //    el bucle infinito si el script termina cargado en toda la tienda.
+    // 6. Si ya estamos en la home, no redirigir. Esto evita el bucle
+    //    infinito si el script termina cargado en toda la tienda.
     var target = document.createElement('a');
     target.href = TARGET;
     if (loc.hostname === target.hostname &&
         path.replace(/\/+$/, '') === target.pathname.replace(/\/+$/, '')) return;
 
-    // 7. Deteccion de dispositivo.
-    //    Se prefiere userAgentData (Chrome moderno); si no existe, el UA.
+    // 7. Deteccion de movil
     var isMobile;
     var uaData = navigator.userAgentData;
 
@@ -75,12 +60,11 @@
       isMobile = true;
     }
 
-    // 8. Decision
-    var shouldRedirect = (REDIRECT_WHEN === 'mobile') ? isMobile : !isMobile;
-    if (!shouldRedirect) return;
+    // 8. Es movil -> se queda. Es escritorio -> a la home.
+    if (isMobile) return;
 
-    // replace() y no href: asi el boton "atras" no devuelve al visitante
-    // a la pagina que acaba de dejar, lo que lo encerraria en un rebote.
+    // replace() y no href: asi el boton "atras" no lo devuelve a la landing,
+    // lo que lo dejaria rebotando entre las dos paginas.
     loc.replace(TARGET);
 
   } catch (e) {
