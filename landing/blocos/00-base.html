@@ -15,16 +15,22 @@
     --cz-serif:'Cormorant Garamond',Georgia,serif;
     --cz-sans:'Jost',system-ui,sans-serif;
   }
-  /* Botao de compra compartilhado por todos os blocos */
+
+  /* Botao de compra — abre o formulario do Releasit COD.
+     Mesmo desenho do botao nativo do app: icone + titulo + subtitulo. */
   .cz-cod{
-    display:inline-block;background:var(--cz-green,#16A34A);color:#fff;
-    font-family:var(--cz-sans,'Jost',sans-serif);font-size:16px;font-weight:600;
-    letter-spacing:.06em;text-decoration:none;text-align:center;
-    padding:17px 40px;border:0;border-radius:10px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;max-width:420px;margin:0 auto;
+    background:var(--cz-green,#16A34A);color:#fff;
+    font-family:var(--cz-sans,'Jost',sans-serif);
+    padding:14px 22px;border:0;border-radius:10px;cursor:pointer;
+    text-align:center;text-decoration:none;
     -webkit-appearance:none;appearance:none;
   }
   .cz-cod:hover{background:var(--cz-green-dark,#12833B)}
-  .cz-cod--full{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;font-size:17px;padding:19px 24px}
+  .cz-cod__icon{width:24px;height:24px;flex:0 0 auto;fill:currentColor}
+  .cz-cod__label{font-size:17px;font-weight:600;letter-spacing:.05em;line-height:1.2}
+  .cz-cod__sub{display:block;margin:3px 0 0;font-size:12px;font-weight:400;opacity:.9;letter-spacing:0}
 </style>
 
 <script>
@@ -32,66 +38,49 @@
    Abre o formulario do Releasit COD a partir de qualquer botao que
    tenha o atributo data-cz-cod.
 
-   COMO LIGAR — escolha UM dos dois caminhos:
+   O seletor abaixo veio do botao real da loja:
+       <button id="rsi_buy_now_button" class="sc-iJKPHa jsUlpn ...">
+   Usamos o ID, nao as classes: "sc-iJKPHa" e "jsUlpn" sao hashes de
+   styled-components e mudam a cada atualizacao do app.
 
-   CAMINHO A (recomendado, sem codigo)
-     No app Releasit, procure a opcao de abrir o formulario por um
-     seletor customizado (costuma chamar "custom button" / "open form
-     on click of"). Cole la:   [data-cz-cod]
-     Pronto. Pode deixar RELEASIT_SELECTOR vazio abaixo.
-
-   CAMINHO B (se o app nao tiver essa opcao)
-     Abra a pagina do produto no computador, clique com o botao direito
-     no botao do Releasit, "Inspecionar", e copie o seletor dele
-     (algo como  #releasit-cod-form-btn  ou  .releasit-cod-button ).
-     Cole esse seletor em RELEASIT_SELECTOR abaixo. O script passa a
-     repassar o clique para aquele botao.
-
-   Se nenhum dos dois estiver configurado, o botao rola a pagina ate a
-   caixa de compra do tema — nunca fica morto.
+   IMPORTANTE: o botao do Releasit precisa EXISTIR na pagina para o
+   clique ser repassado. Ele e renderizado junto do formulario de
+   produto do tema. Se a pagina nao tiver o botao, este script rola
+   ate a caixa de compra em vez de falhar em silencio.
    ===================================================================== */
 (function () {
   'use strict';
 
-  var RELEASIT_SELECTOR = '';   // <- CAMINHO B: cole aqui o seletor real
-
-  // Palpites usados so quando RELEASIT_SELECTOR esta vazio. Sao tentativas,
-  // nao uma API oficial: se nenhuma casar, o botao apenas rola a pagina.
-  var GUESSES = [
-    '[data-releasit-cod-form-button]',
-    '[id*="releasit"][role="button"]',
-    'button[class*="releasit"]',
-    'a[class*="releasit"]',
-    '[class*="cod-form"] button',
-    '#cod-form-button'
+  var SELECTORS = [
+    '#rsi_buy_now_button',   // botao do Releasit (ID oficial)
+    '[id^="rsi_"][id$="_button"]'   // reserva, caso o ID ganhe sufixo
   ];
 
-  function findReleasitButton() {
-    if (RELEASIT_SELECTOR) return document.querySelector(RELEASIT_SELECTOR);
-    for (var i = 0; i < GUESSES.length; i++) {
-      var el = document.querySelector(GUESSES[i]);
-      if (el && !el.hasAttribute('data-cz-cod')) return el;   // nunca a si mesmo
+  function findReleasitButton(){
+    for (var i = 0; i < SELECTORS.length; i++){
+      var el = document.querySelector(SELECTORS[i]);
+      if (el && !el.hasAttribute('data-cz-cod')) return el;
     }
     return null;
   }
 
-  function fallback() {
+  function fallback(){
     var main = document.getElementById('MainContent') || document.querySelector('main');
-    if (main && main.scrollIntoView) {
-      main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (main && main.scrollIntoView){
+      main.scrollIntoView({ behavior:'smooth', block:'start' });
     } else {
       window.scrollTo(0, 0);
     }
   }
 
-  document.addEventListener('click', function (e) {
+  document.addEventListener('click', function (e){
     var trigger = e.target.closest ? e.target.closest('[data-cz-cod]') : null;
     if (!trigger) return;
     e.preventDefault();
 
     var btn = findReleasitButton();
-    if (btn) { btn.click(); return; }   // abre o popup do Releasit
-    fallback();                          // nada encontrado: rola ate a compra
+    if (btn){ btn.click(); return; }
+    fallback();
   }, false);
 })();
 </script>
