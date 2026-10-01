@@ -1,0 +1,670 @@
+<!-- ====================================================================
+     COZATTI — Morral + Cosmetiquera 100% Originales en Cuero
+     Blocos HTML para colar em elementos HTML do PageFly.
+
+     COMO USAR
+     1. No PageFly, arraste um elemento "HTML" para a posicao desejada.
+     2. Cole UM bloco por elemento.
+     3. Repita na ordem. O BLOCO 0 vai primeiro e so uma vez.
+
+     DESENHO
+     - A caixa de compra NAO esta aqui: ela e a secao "main" do tema,
+       que ja tem variante, carrinho e estoque funcionando.
+     - Estes blocos vao ABAIXO dela.
+     - Mobile-first. Cada bloco e autonomo (CSS proprio, escopado).
+
+     COPY: baseada no criativo oficial do produto.
+     Cuero Dacota Premium · Envio gratis a toda Colombia ·
+     Pago contra entrega · 5 anos de garantia · 77% OFF
+     Cores: Cafe / Cognac / Negro
+
+     AINDA PRECISA DA SUA CONFIRMACAO (marcado em cada bloco):
+     - a nota 4.8/5 e a quantidade de resenas
+     - os tres depoimentos
+     - o prazo exato de cambio
+     - prazo de entrega em dias (o criativo so promete envio gratis)
+     ==================================================================== -->
+
+
+<!-- ====================================================================
+     BLOCO 0 — BASE (cole primeiro, uma unica vez)
+     Carrega as fontes e define as cores. Nao desenha nada.
+     ==================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cz-cream:#FAF6F0;
+    --cz-ink:#2A1F19;
+    --cz-ink-soft:#6B5D52;
+    --cz-gold:#B8873B;
+    --cz-gold-light:#E0B766;
+    --cz-green:#16A34A;
+    --cz-green-dark:#12833B;
+    --cz-cream-text:#F3E7D6;
+    --cz-cream-text-soft:#C4B4A3;
+    --cz-serif:'Cormorant Garamond',Georgia,serif;
+    --cz-sans:'Jost',system-ui,sans-serif;
+  }
+</style>
+
+
+<!-- ====================================================================
+     BLOCO 1 — OFERTA (fundo escuro, preco, CTA, contador)
+     ==================================================================== -->
+<div class="cz-oferta">
+  <style>
+    .cz-oferta{
+      box-sizing:border-box;background:var(--cz-ink,#2A1F19);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:48px 20px;text-align:center;
+    }
+    .cz-oferta *,.cz-oferta *::before,.cz-oferta *::after{box-sizing:border-box}
+    .cz-oferta__eyebrow{
+      margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-oferta__title{
+      margin:0 0 14px;font-family:var(--cz-serif,serif);font-size:30px;
+      font-weight:600;line-height:1.18;color:var(--cz-cream-text,#F3E7D6);
+    }
+    .cz-oferta__text{
+      margin:0 auto 22px;max-width:520px;font-size:15px;line-height:1.7;
+      color:var(--cz-cream-text-soft,#C4B4A3);
+    }
+    .cz-oferta__prices{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      flex-wrap:wrap;margin-bottom:18px;
+    }
+    .cz-oferta__was{font-size:16px;color:#9C8B79;text-decoration:line-through}
+    .cz-oferta__now{font-size:36px;font-weight:600;color:var(--cz-cream-text,#F3E7D6);line-height:1.1}
+    .cz-oferta__off{
+      background:#C0392B;color:#fff;font-size:13px;font-weight:700;
+      padding:5px 11px;border-radius:999px;letter-spacing:.04em;
+    }
+    .cz-oferta__cta{
+      display:inline-block;background:var(--cz-green,#16A34A);color:#fff;
+      font-size:16px;font-weight:600;letter-spacing:.06em;text-decoration:none;
+      padding:17px 40px;border-radius:10px;
+    }
+    .cz-oferta__cta:hover{background:var(--cz-green-dark,#12833B)}
+    .cz-oferta__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
+    .cz-oferta__rule{border:0;border-top:1px solid #4A3A2E;max-width:440px;margin:26px auto 18px}
+    .cz-oferta__timerlabel{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-oferta__timer{display:flex;justify-content:center;gap:10px}
+    .cz-oferta__unit{min-width:58px}
+    .cz-oferta__num{
+      font-size:26px;font-weight:600;color:var(--cz-cream-text,#F3E7D6);
+      line-height:1;font-variant-numeric:tabular-nums;
+    }
+    .cz-oferta__cap{
+      display:block;margin-top:5px;font-size:11px;letter-spacing:.08em;color:var(--cz-gold,#B8873B);
+    }
+  </style>
+
+  <p class="cz-oferta__eyebrow">Elegancia en cada momento</p>
+  <h2 class="cz-oferta__title">Más que accesorios,<br>historias contigo</h2>
+  <p class="cz-oferta__text">
+    Morral y cosmetiquera en Cuero Dacota Premium, 100% originales.
+    Herrajes dorados, costuras reforzadas y un interior pensado para que
+    todo tenga su lugar.
+  </p>
+
+  <div class="cz-oferta__prices">
+    <span class="cz-oferta__was">$699.000</span>
+    <span class="cz-oferta__now">$159.000</span>
+    <span class="cz-oferta__off">77% OFF</span>
+  </div>
+
+  <a class="cz-oferta__cta" href="#MainContent">COMPRAR AHORA</a>
+  <p class="cz-oferta__note">Envío gratis a toda Colombia · Pago contra entrega</p>
+
+  <hr class="cz-oferta__rule">
+
+  <p class="cz-oferta__timerlabel">El precio de hoy termina en</p>
+  <div class="cz-oferta__timer" id="cz-timer">
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-h>23</span><span class="cz-oferta__cap">HORAS</span></div>
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-m>59</span><span class="cz-oferta__cap">MIN</span></div>
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-s>59</span><span class="cz-oferta__cap">SEG</span></div>
+  </div>
+</div>
+<script>
+(function(){
+  var root = document.getElementById('cz-timer');
+  if (!root || root.dataset.czInit) return;
+  root.dataset.czInit = '1';
+  var h = root.querySelector('[data-h]'), m = root.querySelector('[data-m]'), s = root.querySelector('[data-s]');
+  if (!h || !m || !s) return;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function tick(){
+    var now = new Date();
+    var end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+    var left = Math.max(0, Math.floor((end - now) / 1000));
+    h.textContent = pad(Math.floor(left / 3600));
+    m.textContent = pad(Math.floor(left % 3600 / 60));
+    s.textContent = pad(left % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+
+<!-- ====================================================================
+     BLOCO 2 — GARANTIAS (os 4 selos do criativo)
+     ==================================================================== -->
+<div class="cz-selos">
+  <style>
+    .cz-selos{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:36px 20px;
+    }
+    .cz-selos *,.cz-selos *::before,.cz-selos *::after{box-sizing:border-box}
+    .cz-selos__grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:680px;margin:0 auto;
+    }
+    .cz-selos__item{
+      background:#fff;border-radius:14px;padding:20px 14px;text-align:center;
+    }
+    .cz-selos__icon{font-size:24px;line-height:1;margin-bottom:8px}
+    .cz-selos__h{
+      margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:.05em;
+      text-transform:uppercase;color:var(--cz-ink,#2A1F19);line-height:1.3;
+    }
+    .cz-selos__p{margin:0;font-size:12px;line-height:1.5;color:var(--cz-ink-soft,#6B5D52)}
+    @media (min-width:768px){ .cz-selos__grid{grid-template-columns:repeat(4,1fr)} }
+  </style>
+
+  <div class="cz-selos__grid">
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">🐂</div>
+      <h3 class="cz-selos__h">Cuero Dacota</h3>
+      <p class="cz-selos__p">Premium y 100% original</p>
+    </div>
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">🚚</div>
+      <h3 class="cz-selos__h">Envío gratis</h3>
+      <p class="cz-selos__p">A toda Colombia</p>
+    </div>
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">💵</div>
+      <h3 class="cz-selos__h">Pago contra entrega</h3>
+      <p class="cz-selos__p">Pagas cuando recibes</p>
+    </div>
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">🛡️</div>
+      <h3 class="cz-selos__h">5 años de garantía</h3>
+      <p class="cz-selos__p">Respaldamos cada pieza</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 3 — EL PROBLEMA (3 cards + fecho escuro)
+     ==================================================================== -->
+<div class="cz-problema">
+  <style>
+    .cz-problema{
+      box-sizing:border-box;background:#fff;
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-problema *,.cz-problema *::before,.cz-problema *::after{box-sizing:border-box}
+    .cz-problema__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-problema__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:30px;
+      font-weight:600;line-height:1.18;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-problema__grid{display:grid;gap:14px}
+    .cz-problema__card{background:var(--cz-cream,#FAF6F0);border-radius:14px;padding:26px 22px}
+    .cz-problema__icon{font-size:26px;line-height:1;margin-bottom:10px}
+    .cz-problema__h{margin:0 0 8px;font-size:17px;font-weight:600;line-height:1.35;color:var(--cz-ink,#2A1F19)}
+    .cz-problema__p{margin:0;font-size:14px;line-height:1.65;color:var(--cz-ink-soft,#6B5D52)}
+    .cz-problema__out{margin-top:20px;background:var(--cz-ink,#2A1F19);border-radius:14px;padding:26px 22px}
+    .cz-problema__out p{margin:0;font-size:15px;line-height:1.7;color:var(--cz-cream-text,#F3E7D6)}
+    @media (min-width:768px){ .cz-problema__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-problema__eyebrow">El problema de siempre</p>
+  <h2 class="cz-problema__title">¿A cuántos bolsos ya les dijiste adiós?</h2>
+
+  <div class="cz-problema__grid">
+    <div class="cz-problema__card">
+      <div class="cz-problema__icon">✂️</div>
+      <h3 class="cz-problema__h">Se desgastan antes de tiempo</h3>
+      <p class="cz-problema__p">El sintético se cuartea, las costuras ceden y a los pocos meses ya no lo quieres sacar a la calle.</p>
+    </div>
+    <div class="cz-problema__card">
+      <div class="cz-problema__icon">📦</div>
+      <h3 class="cz-problema__h">Nunca cabe todo</h3>
+      <p class="cz-problema__p">Un solo bolsillo grande donde todo se pierde: las llaves abajo, el labial suelto, el cargador enredado.</p>
+    </div>
+    <div class="cz-problema__card">
+      <div class="cz-problema__icon">👀</div>
+      <h3 class="cz-problema__h">Se ven fuera de lugar</h3>
+      <p class="cz-problema__p">Sirve para el gimnasio, pero no para la oficina ni para un plan de noche. Terminas con tres bolsos y ninguno completo.</p>
+    </div>
+  </div>
+
+  <div class="cz-problema__out">
+    <p>Por eso elegimos Cuero Dacota Premium: la elegancia y la resistencia que buscabas, respaldadas por 5 años de garantía.</p>
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 4 — GALERIA (4 fotos reais)
+     ==================================================================== -->
+<div class="cz-galeria">
+  <style>
+    .cz-galeria{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-galeria *,.cz-galeria *::before,.cz-galeria *::after{box-sizing:border-box}
+    .cz-galeria__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-galeria__title{
+      margin:0 0 12px;font-family:var(--cz-serif,serif);font-size:30px;
+      font-weight:600;line-height:1.18;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-galeria__text{
+      margin:0 auto 22px;max-width:520px;font-size:15px;line-height:1.7;color:var(--cz-ink-soft,#6B5D52);
+    }
+    .cz-galeria__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .cz-galeria__grid img{
+      width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;display:block;
+    }
+  </style>
+
+  <p class="cz-galeria__eyebrow">Hecho para durar</p>
+  <h2 class="cz-galeria__title">Cada detalle, cuidado a mano</h2>
+  <p class="cz-galeria__text">Cuero Dacota seleccionado pieza por pieza, cortado y cosido a mano. Por eso no hay dos sets exactamente iguales.</p>
+
+  <div class="cz-galeria__grid">
+    <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_20_49.png?v=1788374884&width=800" alt="Los tres sets de morral y cosmetiquera Velez en una terraza" loading="lazy" width="800" height="800">
+    <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_35.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color cognac" loading="lazy" width="800" height="800">
+    <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_41.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color café" loading="lazy" width="800" height="800">
+    <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_49.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color negro" loading="lazy" width="800" height="800">
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 5 — EL SET (4 beneficios)
+     ==================================================================== -->
+<div class="cz-set">
+  <style>
+    .cz-set{
+      box-sizing:border-box;background:#fff;
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;
+    }
+    .cz-set *,.cz-set *::before,.cz-set *::after{box-sizing:border-box}
+    .cz-set__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);text-align:center;
+    }
+    .cz-set__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:30px;font-weight:600;
+      line-height:1.18;color:var(--cz-ink,#2A1F19);text-align:center;
+    }
+    .cz-set__list{display:grid;gap:12px;max-width:680px;margin:0 auto}
+    .cz-set__item{
+      display:flex;gap:14px;align-items:flex-start;
+      background:var(--cz-cream,#FAF6F0);border-radius:14px;padding:20px 18px;
+    }
+    .cz-set__icon{font-size:22px;line-height:1.2;flex:0 0 auto}
+    .cz-set__h{margin:0 0 6px;font-size:16px;font-weight:600;line-height:1.3;color:var(--cz-ink,#2A1F19)}
+    .cz-set__p{margin:0;font-size:14px;line-height:1.65;color:var(--cz-ink-soft,#6B5D52)}
+  </style>
+
+  <p class="cz-set__eyebrow">Dos piezas, un solo set</p>
+  <h2 class="cz-set__title">Todo lo que buscabas, en un solo set</h2>
+
+  <div class="cz-set__list">
+    <div class="cz-set__item">
+      <div class="cz-set__icon">🐂</div>
+      <div>
+        <h3 class="cz-set__h">Cuero Dacota Premium</h3>
+        <p class="cz-set__p">Grueso, resistente y fácil de limpiar. Con el uso toma un brillo más bonito en lugar de gastarse.</p>
+      </div>
+    </div>
+    <div class="cz-set__item">
+      <div class="cz-set__icon">✨</div>
+      <div>
+        <h3 class="cz-set__h">Herrajes dorados</h3>
+        <p class="cz-set__p">Hebillas macizas con acabado dorado que no se oxidan ni pierden el color con el tiempo.</p>
+      </div>
+    </div>
+    <div class="cz-set__item">
+      <div class="cz-set__icon">🧳</div>
+      <div>
+        <h3 class="cz-set__h">Interior organizador</h3>
+        <p class="cz-set__p">Bolsillos internos para que el celular, las llaves y el labial tengan cada uno su lugar.</p>
+      </div>
+    </div>
+    <div class="cz-set__item">
+      <div class="cz-set__icon">🎁</div>
+      <div>
+        <h3 class="cz-set__h">Set completo a juego</h3>
+        <p class="cz-set__p">Morral y cosmetiquera del mismo cuero y el mismo tono. No tienes que combinar nada: ya vienen pensados como conjunto.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 6 — TRES COLORES  (Cafe / Cognac / Negro — nomes oficiais)
+     ==================================================================== -->
+<div class="cz-colores">
+  <style>
+    .cz-colores{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-colores *,.cz-colores *::before,.cz-colores *::after{box-sizing:border-box}
+    .cz-colores__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-colores__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:30px;
+      font-weight:600;line-height:1.18;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-colores__grid{display:grid;gap:16px}
+    .cz-colores__card{background:#fff;border-radius:16px;padding:16px 16px 24px}
+    .cz-colores__card img{
+      width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block;margin-bottom:12px;
+    }
+    .cz-colores__h{
+      margin:0 0 6px;font-family:var(--cz-serif,serif);font-size:24px;
+      font-weight:600;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-colores__p{margin:0;font-size:14px;line-height:1.6;color:var(--cz-ink-soft,#6B5D52)}
+    .cz-colores__cta{
+      display:inline-block;margin-top:24px;background:var(--cz-green,#16A34A);color:#fff;
+      font-size:16px;font-weight:600;letter-spacing:.06em;text-decoration:none;
+      padding:17px 40px;border-radius:10px;
+    }
+    .cz-colores__cta:hover{background:var(--cz-green-dark,#12833B)}
+    @media (min-width:768px){ .cz-colores__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-colores__eyebrow">Elige el tuyo</p>
+  <h2 class="cz-colores__title">Tres colores, un solo estilo</h2>
+
+  <div class="cz-colores__grid">
+    <div class="cz-colores__card">
+      <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_41.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color café" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Café</h3>
+      <p class="cz-colores__p">Clásico y sobrio. El que combina con todo lo que ya tienes.</p>
+    </div>
+    <div class="cz-colores__card">
+      <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_35.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color cognac" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Cognac</h3>
+      <p class="cz-colores__p">Cálido y con carácter. El que la gente te va a preguntar dónde lo compraste.</p>
+    </div>
+    <div class="cz-colores__card">
+      <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_49.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color negro" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Negro</h3>
+      <p class="cz-colores__p">Elegante y discreto. El que sirve para la oficina y para salir.</p>
+    </div>
+  </div>
+
+  <a class="cz-colores__cta" href="#MainContent">ELEGIR MI COLOR</a>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 7 — DIA A DIA (foto + 3 usos numerados)
+     ==================================================================== -->
+<div class="cz-dia">
+  <style>
+    .cz-dia{
+      box-sizing:border-box;background:#fff;
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;
+    }
+    .cz-dia *,.cz-dia *::before,.cz-dia *::after{box-sizing:border-box}
+    .cz-dia__hero{
+      width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block;margin-bottom:22px;
+    }
+    .cz-dia__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);text-align:center;
+    }
+    .cz-dia__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:30px;font-weight:600;
+      line-height:1.18;color:var(--cz-ink,#2A1F19);text-align:center;
+    }
+    .cz-dia__list{display:grid;gap:14px;max-width:680px;margin:0 auto}
+    .cz-dia__item{
+      display:flex;gap:16px;align-items:flex-start;
+      background:var(--cz-cream,#FAF6F0);border-radius:14px;padding:20px 18px;
+    }
+    .cz-dia__num{
+      font-family:var(--cz-serif,serif);font-size:28px;font-weight:600;line-height:1;
+      color:var(--cz-gold,#B8873B);flex:0 0 auto;
+    }
+    .cz-dia__h{margin:0 0 6px;font-size:16px;font-weight:600;line-height:1.3;color:var(--cz-ink,#2A1F19)}
+    .cz-dia__p{margin:0;font-size:14px;line-height:1.65;color:var(--cz-ink-soft,#6B5D52)}
+  </style>
+
+  <img class="cz-dia__hero"
+       src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_20_49.png?v=1788374884&width=1000"
+       alt="Mujer junto a los tres sets de morral y cosmetiquera en una terraza"
+       loading="lazy" width="1000" height="750">
+
+  <p class="cz-dia__eyebrow">Lo extraordinario te acompaña</p>
+  <h2 class="cz-dia__title">Pensado para tu día a día</h2>
+
+  <div class="cz-dia__list">
+    <div class="cz-dia__item">
+      <div class="cz-dia__num">01</div>
+      <div>
+        <h3 class="cz-dia__h">Para salir a diario</h3>
+        <p class="cz-dia__p">El morral reparte el peso en los dos hombros y te deja las manos libres para el transporte, el café y el celular.</p>
+      </div>
+    </div>
+    <div class="cz-dia__item">
+      <div class="cz-dia__num">02</div>
+      <div>
+        <h3 class="cz-dia__h">Para viajar tranquila</h3>
+        <p class="cz-dia__p">La cosmetiquera guarda el maquillaje y los cuidados aparte, sin que se rieguen en el fondo del morral.</p>
+      </div>
+    </div>
+    <div class="cz-dia__item">
+      <div class="cz-dia__num">03</div>
+      <div>
+        <h3 class="cz-dia__h">Para verte bien siempre</h3>
+        <p class="cz-dia__p">Cuero y herrajes dorados que suben cualquier pinta, del jean de la oficina al plan de la noche.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 8 — TESTIMONIOS
+     ATENCAO: os tres textos vieram do SEU PROPRIO TEMA (bloco "reviews"
+     do template de produto). Confirme que sao resenas reais antes de
+     publicar. Se nao forem, troque pelas verdadeiras ou remova o bloco.
+     ==================================================================== -->
+<div class="cz-test">
+  <style>
+    .cz-test{
+      box-sizing:border-box;background:var(--cz-ink,#2A1F19);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-test *,.cz-test *::before,.cz-test *::after{box-sizing:border-box}
+    .cz-test__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-test__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:29px;font-weight:600;
+      line-height:1.18;color:var(--cz-cream-text,#F3E7D6);
+    }
+    .cz-test__grid{display:grid;gap:14px}
+    .cz-test__card{background:#3A2C23;border-radius:14px;padding:24px 20px;text-align:left}
+    .cz-test__stars{font-size:14px;letter-spacing:2px;color:#E8A33D;margin-bottom:10px}
+    .cz-test__quote{margin:0 0 12px;font-size:15px;line-height:1.7;color:#E4D6C4}
+    .cz-test__who{margin:0;font-size:13px;font-weight:600;color:var(--cz-gold,#B8873B)}
+    @media (min-width:768px){ .cz-test__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-test__eyebrow">Elegido por miles de mujeres</p>
+  <h2 class="cz-test__title">Confían en nosotros, confía tú también</h2>
+
+  <div class="cz-test__grid">
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“Compré varios productos a la vez y, sinceramente, superaron mis expectativas. Todo fue perfecto, desde la compra hasta la entrega; me he convertido en cliente.”</p>
+      <p class="cz-test__who">— Juan P.</p>
+    </div>
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“Pedí contra entrega y todo llegó exactamente como esperaba. Muy buena calidad y entrega súper rápida.”</p>
+      <p class="cz-test__who">— Harold M.</p>
+    </div>
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“Excelente experiencia de compra. Calidad premium, entrega rápida y exactamente igual a las fotos.”</p>
+      <p class="cz-test__who">— Andrés G.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 9 — FAQ (acordeao em HTML puro, sem JavaScript)
+     CONFIRA o prazo de cambio e o de entrega antes de publicar.
+     ==================================================================== -->
+<div class="cz-faq">
+  <style>
+    .cz-faq{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;
+    }
+    .cz-faq *,.cz-faq *::before,.cz-faq *::after{box-sizing:border-box}
+    .cz-faq__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);text-align:center;
+    }
+    .cz-faq__title{
+      margin:0 0 20px;font-family:var(--cz-serif,serif);font-size:30px;font-weight:600;
+      line-height:1.18;color:var(--cz-ink,#2A1F19);text-align:center;
+    }
+    .cz-faq__list{max-width:680px;margin:0 auto}
+    .cz-faq__item{border-bottom:1px solid #E0D3C2}
+    .cz-faq__q{
+      list-style:none;cursor:pointer;padding:18px 34px 18px 0;position:relative;
+      font-size:15px;font-weight:600;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-faq__q::-webkit-details-marker{display:none}
+    .cz-faq__q::after{
+      content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);
+      font-size:20px;font-weight:400;color:var(--cz-gold,#B8873B);
+    }
+    .cz-faq__item[open] .cz-faq__q::after{content:'−'}
+    .cz-faq__a{margin:0 0 18px;font-size:14px;line-height:1.7;color:var(--cz-ink-soft,#6B5D52)}
+  </style>
+
+  <p class="cz-faq__eyebrow">Antes de pedir</p>
+  <h2 class="cz-faq__title">Preguntas frecuentes</h2>
+
+  <div class="cz-faq__list">
+    <details class="cz-faq__item">
+      <summary class="cz-faq__q">¿Cómo pago el pedido?</summary>
+      <p class="cz-faq__a">Pagas contra entrega: le entregas el dinero al domiciliario en el momento en que recibes el paquete. No necesitas tarjeta ni pagar nada por adelantado.</p>
+    </details>
+    <details class="cz-faq__item">
+      <summary class="cz-faq__q">¿Cuánto cuesta el envío?</summary>
+      <p class="cz-faq__a">Nada. El envío es gratis a toda Colombia, sin monto mínimo.</p>
+    </details>
+    <details class="cz-faq__item">
+      <summary class="cz-faq__q">¿El precio incluye las dos piezas?</summary>
+      <p class="cz-faq__a">Sí. Por $159.000 recibes el morral y la cosmetiquera, los dos en el mismo cuero y el mismo color que elijas.</p>
+    </details>
+    <details class="cz-faq__item">
+      <summary class="cz-faq__q">¿Qué cubre la garantía?</summary>
+      <p class="cz-faq__a">Tienes 5 años de garantía sobre el cuero, las costuras y los herrajes. Si algo falla por defecto de fabricación, respondemos.</p>
+    </details>
+    <details class="cz-faq__item">
+      <summary class="cz-faq__q">¿Puedo cambiarlo si no me convence?</summary>
+      <p class="cz-faq__a">Sí. Si no te encanta, te lo cambiamos. Escríbenos y coordinamos el cambio.</p>
+    </details>
+  </div>
+</div>
+
+
+<!-- ====================================================================
+     BLOCO 10 — CIERRE (ultima chamada)
+     ==================================================================== -->
+<div class="cz-cierre">
+  <style>
+    .cz-cierre{
+      box-sizing:border-box;background:var(--cz-ink,#2A1F19);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-cierre *,.cz-cierre *::before,.cz-cierre *::after{box-sizing:border-box}
+    .cz-cierre img{
+      width:100%;max-width:420px;aspect-ratio:1/1;object-fit:cover;
+      border-radius:16px;display:block;margin:0 auto 18px;
+    }
+    .cz-cierre__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-cierre__title{
+      margin:0 0 12px;font-family:var(--cz-serif,serif);font-size:30px;font-weight:600;
+      line-height:1.18;color:var(--cz-cream-text,#F3E7D6);
+    }
+    .cz-cierre__text{
+      margin:0 auto 20px;max-width:480px;font-size:15px;line-height:1.7;
+      color:var(--cz-cream-text-soft,#C4B4A3);
+    }
+    .cz-cierre__prices{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      flex-wrap:wrap;margin-bottom:18px;
+    }
+    .cz-cierre__was{font-size:16px;color:#9C8B79;text-decoration:line-through}
+    .cz-cierre__now{font-size:36px;font-weight:600;color:var(--cz-cream-text,#F3E7D6);line-height:1.1}
+    .cz-cierre__off{
+      background:#C0392B;color:#fff;font-size:13px;font-weight:700;
+      padding:5px 11px;border-radius:999px;letter-spacing:.04em;
+    }
+    .cz-cierre__cta{
+      display:block;max-width:420px;margin:0 auto;background:var(--cz-green,#16A34A);color:#fff;
+      font-size:17px;font-weight:600;letter-spacing:.06em;text-decoration:none;
+      padding:19px 24px;border-radius:10px;
+    }
+    .cz-cierre__cta:hover{background:var(--cz-green-dark,#12833B)}
+    .cz-cierre__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
+  </style>
+
+  <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_35.png?v=1788374883&width=800"
+       alt="Morral y cosmetiquera en Cuero Dacota color cognac, set completo"
+       loading="lazy" width="800" height="800">
+
+  <p class="cz-cierre__eyebrow">Últimas unidades</p>
+  <h2 class="cz-cierre__title">Llévate el set completo hoy</h2>
+  <p class="cz-cierre__text">Morral y cosmetiquera en Cuero Dacota Premium, en el color que elijas. Pagas cuando lo recibes en tu casa.</p>
+
+  <div class="cz-cierre__prices">
+    <span class="cz-cierre__was">$699.000</span>
+    <span class="cz-cierre__now">$159.000</span>
+    <span class="cz-cierre__off">77% OFF</span>
+  </div>
+
+  <a class="cz-cierre__cta" href="#MainContent">COMPRAR AHORA</a>
+  <p class="cz-cierre__note">Envío gratis · Pago contra entrega · 5 años de garantía</p>
+</div>
