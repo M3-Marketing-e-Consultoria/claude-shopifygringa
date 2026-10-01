@@ -1,34 +1,12 @@
 <!-- ====================================================================
-     COZATTI — Morral + Cosmetiquera 100% Originales en Cuero
-     Blocos HTML para colar em elementos HTML do PageFly.
-
-     COMO USAR
-     1. No PageFly, arraste um elemento "HTML" para a posicao desejada.
-     2. Cole UM bloco por elemento.
-     3. Repita na ordem. O BLOCO 0 vai primeiro e so uma vez.
-
-     DESENHO
-     - A caixa de compra NAO esta aqui: ela e a secao "main" do tema,
-       que ja tem variante, carrinho e estoque funcionando.
-     - Estes blocos vao ABAIXO dela.
-     - Mobile-first. Cada bloco e autonomo (CSS proprio, escopado).
-
-     COPY: baseada no criativo oficial do produto.
-     Cuero Dacota Premium · Envio gratis a toda Colombia ·
-     Pago contra entrega · 5 anos de garantia · 77% OFF
-     Cores: Cafe / Cognac / Negro
-
-     AINDA PRECISA DA SUA CONFIRMACAO (marcado em cada bloco):
-     - a nota 4.8/5 e a quantidade de resenas
-     - os tres depoimentos
-     - o prazo exato de cambio
-     - prazo de entrega em dias (o criativo so promete envio gratis)
+     COZATTI — Morral + Cosmetiquera. Blocos HTML para o PageFly.
+     Botoes de compra abrem o formulario do Releasit COD.
+     Ver instrucoes de ligacao dentro do BLOCO 0.
      ==================================================================== -->
 
 
 <!-- ====================================================================
      BLOCO 0 — BASE (cole primeiro, uma unica vez)
-     Carrega as fontes e define as cores. Nao desenha nada.
      ==================================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,11 +25,89 @@
     --cz-serif:'Cormorant Garamond',Georgia,serif;
     --cz-sans:'Jost',system-ui,sans-serif;
   }
+  /* Botao de compra compartilhado por todos os blocos */
+  .cz-cod{
+    display:inline-block;background:var(--cz-green,#16A34A);color:#fff;
+    font-family:var(--cz-sans,'Jost',sans-serif);font-size:16px;font-weight:600;
+    letter-spacing:.06em;text-decoration:none;text-align:center;
+    padding:17px 40px;border:0;border-radius:10px;cursor:pointer;
+    -webkit-appearance:none;appearance:none;
+  }
+  .cz-cod:hover{background:var(--cz-green-dark,#12833B)}
+  .cz-cod--full{display:block;width:100%;max-width:420px;margin-left:auto;margin-right:auto;font-size:17px;padding:19px 24px}
 </style>
 
+<script>
+/* =====================================================================
+   Abre o formulario do Releasit COD a partir de qualquer botao que
+   tenha o atributo data-cz-cod.
+
+   COMO LIGAR — escolha UM dos dois caminhos:
+
+   CAMINHO A (recomendado, sem codigo)
+     No app Releasit, procure a opcao de abrir o formulario por um
+     seletor customizado (costuma chamar "custom button" / "open form
+     on click of"). Cole la:   [data-cz-cod]
+     Pronto. Pode deixar RELEASIT_SELECTOR vazio abaixo.
+
+   CAMINHO B (se o app nao tiver essa opcao)
+     Abra a pagina do produto no computador, clique com o botao direito
+     no botao do Releasit, "Inspecionar", e copie o seletor dele
+     (algo como  #releasit-cod-form-btn  ou  .releasit-cod-button ).
+     Cole esse seletor em RELEASIT_SELECTOR abaixo. O script passa a
+     repassar o clique para aquele botao.
+
+   Se nenhum dos dois estiver configurado, o botao rola a pagina ate a
+   caixa de compra do tema — nunca fica morto.
+   ===================================================================== */
+(function () {
+  'use strict';
+
+  var RELEASIT_SELECTOR = '';   // <- CAMINHO B: cole aqui o seletor real
+
+  // Palpites usados so quando RELEASIT_SELECTOR esta vazio. Sao tentativas,
+  // nao uma API oficial: se nenhuma casar, o botao apenas rola a pagina.
+  var GUESSES = [
+    '[data-releasit-cod-form-button]',
+    '[id*="releasit"][role="button"]',
+    'button[class*="releasit"]',
+    'a[class*="releasit"]',
+    '[class*="cod-form"] button',
+    '#cod-form-button'
+  ];
+
+  function findReleasitButton() {
+    if (RELEASIT_SELECTOR) return document.querySelector(RELEASIT_SELECTOR);
+    for (var i = 0; i < GUESSES.length; i++) {
+      var el = document.querySelector(GUESSES[i]);
+      if (el && !el.hasAttribute('data-cz-cod')) return el;   // nunca a si mesmo
+    }
+    return null;
+  }
+
+  function fallback() {
+    var main = document.getElementById('MainContent') || document.querySelector('main');
+    if (main && main.scrollIntoView) {
+      main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest ? e.target.closest('[data-cz-cod]') : null;
+    if (!trigger) return;
+    e.preventDefault();
+
+    var btn = findReleasitButton();
+    if (btn) { btn.click(); return; }   // abre o popup do Releasit
+    fallback();                          // nada encontrado: rola ate a compra
+  }, false);
+})();
+</script>
 
 <!-- ====================================================================
-     BLOCO 1 — OFERTA (fundo escuro, preco, CTA, contador)
+     BLOCO 1 — OFERTA
      ==================================================================== -->
 <div class="cz-oferta">
   <style>
@@ -81,14 +137,7 @@
     .cz-oferta__off{
       background:#C0392B;color:#fff;font-size:13px;font-weight:700;
       padding:5px 11px;border-radius:999px;letter-spacing:.04em;
-    }
-    .cz-oferta__cta{
-      display:inline-block;background:var(--cz-green,#16A34A);color:#fff;
-      font-size:16px;font-weight:600;letter-spacing:.06em;text-decoration:none;
-      padding:17px 40px;border-radius:10px;
-    }
-    .cz-oferta__cta:hover{background:var(--cz-green-dark,#12833B)}
-    .cz-oferta__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
+    }    .cz-oferta__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
     .cz-oferta__rule{border:0;border-top:1px solid #4A3A2E;max-width:440px;margin:26px auto 18px}
     .cz-oferta__timerlabel{
       margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
@@ -119,7 +168,7 @@
     <span class="cz-oferta__off">77% OFF</span>
   </div>
 
-  <a class="cz-oferta__cta" href="#MainContent">COMPRAR AHORA</a>
+  <button type="button" class="cz-cod" data-cz-cod>COMPRAR AHORA</button>
   <p class="cz-oferta__note">Envío gratis a toda Colombia · Pago contra entrega</p>
 
   <hr class="cz-oferta__rule">
@@ -152,9 +201,8 @@
 })();
 </script>
 
-
 <!-- ====================================================================
-     BLOCO 2 — GARANTIAS (os 4 selos do criativo)
+     BLOCO 2 — GARANTIAS
      ==================================================================== -->
 <div class="cz-selos">
   <style>
@@ -202,9 +250,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 3 — EL PROBLEMA (3 cards + fecho escuro)
+     BLOCO 3 — EL PROBLEMA
      ==================================================================== -->
 <div class="cz-problema">
   <style>
@@ -257,9 +304,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 4 — GALERIA (4 fotos reais)
+     BLOCO 4 — GALERIA
      ==================================================================== -->
 <div class="cz-galeria">
   <style>
@@ -297,9 +343,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 5 — EL SET (4 beneficios)
+     BLOCO 5 — EL SET
      ==================================================================== -->
 <div class="cz-set">
   <style>
@@ -361,9 +406,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 6 — TRES COLORES  (Cafe / Cognac / Negro — nomes oficiais)
+     BLOCO 6 — TRES COLORES
      ==================================================================== -->
 <div class="cz-colores">
   <style>
@@ -389,14 +433,7 @@
       margin:0 0 6px;font-family:var(--cz-serif,serif);font-size:24px;
       font-weight:600;color:var(--cz-ink,#2A1F19);
     }
-    .cz-colores__p{margin:0;font-size:14px;line-height:1.6;color:var(--cz-ink-soft,#6B5D52)}
-    .cz-colores__cta{
-      display:inline-block;margin-top:24px;background:var(--cz-green,#16A34A);color:#fff;
-      font-size:16px;font-weight:600;letter-spacing:.06em;text-decoration:none;
-      padding:17px 40px;border-radius:10px;
-    }
-    .cz-colores__cta:hover{background:var(--cz-green-dark,#12833B)}
-    @media (min-width:768px){ .cz-colores__grid{grid-template-columns:repeat(3,1fr)} }
+    .cz-colores__p{margin:0;font-size:14px;line-height:1.6;color:var(--cz-ink-soft,#6B5D52)}    @media (min-width:768px){ .cz-colores__grid{grid-template-columns:repeat(3,1fr)} }
   </style>
 
   <p class="cz-colores__eyebrow">Elige el tuyo</p>
@@ -420,12 +457,11 @@
     </div>
   </div>
 
-  <a class="cz-colores__cta" href="#MainContent">ELEGIR MI COLOR</a>
+  <button type="button" class="cz-cod" data-cz-cod style="margin-top:24px">ELEGIR MI COLOR</button>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 7 — DIA A DIA (foto + 3 usos numerados)
+     BLOCO 7 — DIA A DIA
      ==================================================================== -->
 <div class="cz-dia">
   <style>
@@ -491,12 +527,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
      BLOCO 8 — TESTIMONIOS
-     ATENCAO: os tres textos vieram do SEU PROPRIO TEMA (bloco "reviews"
-     do template de produto). Confirme que sao resenas reais antes de
-     publicar. Se nao forem, troque pelas verdadeiras ou remova o bloco.
      ==================================================================== -->
 <div class="cz-test">
   <style>
@@ -543,10 +575,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 9 — FAQ (acordeao em HTML puro, sem JavaScript)
-     CONFIRA o prazo de cambio e o de entrega antes de publicar.
+     BLOCO 9 — FAQ
      ==================================================================== -->
 <div class="cz-faq">
   <style>
@@ -605,9 +635,8 @@
   </div>
 </div>
 
-
 <!-- ====================================================================
-     BLOCO 10 — CIERRE (ultima chamada)
+     BLOCO 10 — CIERRE
      ==================================================================== -->
 <div class="cz-cierre">
   <style>
@@ -641,14 +670,7 @@
     .cz-cierre__off{
       background:#C0392B;color:#fff;font-size:13px;font-weight:700;
       padding:5px 11px;border-radius:999px;letter-spacing:.04em;
-    }
-    .cz-cierre__cta{
-      display:block;max-width:420px;margin:0 auto;background:var(--cz-green,#16A34A);color:#fff;
-      font-size:17px;font-weight:600;letter-spacing:.06em;text-decoration:none;
-      padding:19px 24px;border-radius:10px;
-    }
-    .cz-cierre__cta:hover{background:var(--cz-green-dark,#12833B)}
-    .cz-cierre__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
+    }    .cz-cierre__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
   </style>
 
   <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_35.png?v=1788374883&width=800"
@@ -665,6 +687,6 @@
     <span class="cz-cierre__off">77% OFF</span>
   </div>
 
-  <a class="cz-cierre__cta" href="#MainContent">COMPRAR AHORA</a>
+  <button type="button" class="cz-cod cz-cod--full" data-cz-cod>COMPRAR AHORA</button>
   <p class="cz-cierre__note">Envío gratis · Pago contra entrega · 5 años de garantía</p>
 </div>
