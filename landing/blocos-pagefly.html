@@ -1,6 +1,6 @@
 <!-- ====================================================================
      COZATTI — Morral + Cosmetiquera. Blocos HTML para o PageFly.
-     Botoes de compra abrem o formulario do Releasit COD (#rsi_buy_now_button).
+     Botoes de compra abrem o formulario do Releasit COD.
      ==================================================================== -->
 
 
@@ -47,28 +47,46 @@
    Abre o formulario do Releasit COD a partir de qualquer botao que
    tenha o atributo data-cz-cod.
 
-   O seletor abaixo veio do botao real da loja:
-       <button id="rsi_buy_now_button" class="sc-iJKPHa jsUlpn ...">
-   Usamos o ID, nao as classes: "sc-iJKPHa" e "jsUlpn" sao hashes de
-   styled-components e mudam a cada atualizacao do app.
+   COMO FUNCIONA
+   Procura o botao do proprio Releasit no DOM e repassa o clique.
+   Nao usa nenhuma API do app — so o DOM que ele renderiza.
 
-   IMPORTANTE: o botao do Releasit precisa EXISTIR na pagina para o
-   clique ser repassado. Ele e renderizado junto do formulario de
-   produto do tema. Se a pagina nao tiver o botao, este script rola
-   ate a caixa de compra em vez de falhar em silencio.
+   A busca e por PREFIXO (rsi_), nao por um id fixo, porque o botao
+   muda de id conforme onde o app o renderiza: #rsi_buy_now_button no
+   formulario de produto, outro id no botao fixo do rodape. Qualquer
+   um serve: todos abrem o mesmo formulario.
+
+   NAO usamos as classes (sc-iJKPHa, jsUlpn): sao hashes de
+   styled-components e mudam a cada versao do app.
+
+   Se nada for encontrado, rola ate a caixa de compra — nunca fica morto.
+
+   DIAGNOSTICO: se o botao nao abrir o popup, rode no console da pagina:
+     copy([...document.querySelectorAll('[id*="rsi"],[class*="rsi"]')]
+       .map(e => e.tagName + '#' + e.id + '.' + e.className).join('\n'))
+   e me mande o resultado.
    ===================================================================== */
 (function () {
   'use strict';
 
-  var SELECTORS = [
-    '#rsi_buy_now_button',   // botao do Releasit (ID oficial)
-    '[id^="rsi_"][id$="_button"]'   // reserva, caso o ID ganhe sufixo
-  ];
+  function ehClicavel(n){
+    return n.tagName === 'BUTTON' || n.tagName === 'A' || n.getAttribute('role') === 'button';
+  }
 
   function findReleasitButton(){
-    for (var i = 0; i < SELECTORS.length; i++){
-      var el = document.querySelector(SELECTORS[i]);
-      if (el && !el.hasAttribute('data-cz-cod')) return el;
+    // 1. o id visto no formulario de produto
+    var direto = document.querySelector('#rsi_buy_now_button');
+    if (direto) return direto;
+
+    // 2. qualquer elemento do Releasit (prefixo rsi_) que seja clicavel,
+    //    ou que contenha um botao — cobre o botao fixo do rodape
+    var nodes = document.querySelectorAll('[id^="rsi_"],[id^="rsi-"],[class*="rsi_"],[class*="rsi-"]');
+    for (var i = 0; i < nodes.length; i++){
+      var n = nodes[i];
+      if (n.hasAttribute('data-cz-cod') || n.closest('[data-cz-cod]')) continue;
+      if (ehClicavel(n)) return n;
+      var dentro = n.querySelector('button,[role="button"]');
+      if (dentro) return dentro;
     }
     return null;
   }
