@@ -1,0 +1,45 @@
+<div class="cz-selos">
+  <style>
+    .cz-selos{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:36px 20px;
+    }
+    .cz-selos *,.cz-selos *::before,.cz-selos *::after{box-sizing:border-box}
+    .cz-selos__grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:680px;margin:0 auto;
+    }
+    .cz-selos__item{
+      background:#fff;border-radius:14px;padding:20px 14px;text-align:center;
+    }
+    .cz-selos__icon{font-size:24px;line-height:1;margin-bottom:8px}
+    .cz-selos__h{
+      margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:.05em;
+      text-transform:uppercase;color:var(--cz-ink,#2A1F19);line-height:1.3;
+    }
+    .cz-selos__p{margin:0;font-size:12px;line-height:1.5;color:var(--cz-ink-soft,#6B5D52)}
+    @media (min-width:768px){ .cz-selos__grid{grid-template-columns:repeat(4,1fr)} }
+  </style>
+
+  <div class="cz-selos__grid">
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">🐂</div>
+      <h3 class="cz-selos__h">Cuero Dacota</h3>
+      <p class="cz-selos__p">Premium y 100% original</p>
+    </div>
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">🚚</div>
+      <h3 class="cz-selos__h">Envío gratis</h3>
+      <p class="cz-selos__p">A toda Colombia</p>
+    </div>
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">💵</div>
+      <h3 class="cz-selos__h">Pago contra entrega</h3>
+      <p class="cz-selos__p">Pagas cuando recibes</p>
+    </div>
+    <div class="cz-selos__item">
+      <div class="cz-selos__icon">🛡️</div>
+      <h3 class="cz-selos__h">5 años de garantía</h3>
+      <p class="cz-selos__p">Respaldamos cada pieza</p>
+    </div>
+  </div>
+</div>

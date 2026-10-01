@@ -1,0 +1,44 @@
+<div class="cz-test">
+  <style>
+    .cz-test{
+      box-sizing:border-box;background:var(--cz-ink,#2A1F19);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-test *,.cz-test *::before,.cz-test *::after{box-sizing:border-box}
+    .cz-test__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-test__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:29px;font-weight:600;
+      line-height:1.18;color:var(--cz-cream-text,#F3E7D6);
+    }
+    .cz-test__grid{display:grid;gap:14px}
+    .cz-test__card{background:#3A2C23;border-radius:14px;padding:24px 20px;text-align:left}
+    .cz-test__stars{font-size:14px;letter-spacing:2px;color:#E8A33D;margin-bottom:10px}
+    .cz-test__quote{margin:0 0 12px;font-size:15px;line-height:1.7;color:#E4D6C4}
+    .cz-test__who{margin:0;font-size:13px;font-weight:600;color:var(--cz-gold,#B8873B)}
+    @media (min-width:768px){ .cz-test__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-test__eyebrow">Elegido por miles de mujeres</p>
+  <h2 class="cz-test__title">Confían en nosotros, confía tú también</h2>
+
+  <div class="cz-test__grid">
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“Compré varios productos a la vez y, sinceramente, superaron mis expectativas. Todo fue perfecto, desde la compra hasta la entrega; me he convertido en cliente.”</p>
+      <p class="cz-test__who">— Juan P.</p>
+    </div>
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“Pedí contra entrega y todo llegó exactamente como esperaba. Muy buena calidad y entrega súper rápida.”</p>
+      <p class="cz-test__who">— Harold M.</p>
+    </div>
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“Excelente experiencia de compra. Calidad premium, entrega rápida y exactamente igual a las fotos.”</p>
+      <p class="cz-test__who">— Andrés G.</p>
+    </div>
+  </div>
+</div>

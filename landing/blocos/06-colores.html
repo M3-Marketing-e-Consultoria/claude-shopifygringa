@@ -1,0 +1,57 @@
+<div class="cz-colores">
+  <style>
+    .cz-colores{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-colores *,.cz-colores *::before,.cz-colores *::after{box-sizing:border-box}
+    .cz-colores__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-colores__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:30px;
+      font-weight:600;line-height:1.18;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-colores__grid{display:grid;gap:16px}
+    .cz-colores__card{background:#fff;border-radius:16px;padding:16px 16px 24px}
+    .cz-colores__card img{
+      width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block;margin-bottom:12px;
+    }
+    .cz-colores__h{
+      margin:0 0 6px;font-family:var(--cz-serif,serif);font-size:24px;
+      font-weight:600;color:var(--cz-ink,#2A1F19);
+    }
+    .cz-colores__p{margin:0;font-size:14px;line-height:1.6;color:var(--cz-ink-soft,#6B5D52)}
+    .cz-colores__cta{
+      display:inline-block;margin-top:24px;background:var(--cz-green,#16A34A);color:#fff;
+      font-size:16px;font-weight:600;letter-spacing:.06em;text-decoration:none;
+      padding:17px 40px;border-radius:10px;
+    }
+    .cz-colores__cta:hover{background:var(--cz-green-dark,#12833B)}
+    @media (min-width:768px){ .cz-colores__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-colores__eyebrow">Elige el tuyo</p>
+  <h2 class="cz-colores__title">Tres colores, un solo estilo</h2>
+
+  <div class="cz-colores__grid">
+    <div class="cz-colores__card">
+      <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_41.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color café" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Café</h3>
+      <p class="cz-colores__p">Clásico y sobrio. El que combina con todo lo que ya tienes.</p>
+    </div>
+    <div class="cz-colores__card">
+      <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_35.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color cognac" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Cognac</h3>
+      <p class="cz-colores__p">Cálido y con carácter. El que la gente te va a preguntar dónde lo compraste.</p>
+    </div>
+    <div class="cz-colores__card">
+      <img src="https://cdn.shopify.com/s/files/1/0996/2271/5697/files/ChatGPTImage2deset.de2026_15_45_49.png?v=1788374883&width=800" alt="Morral y cosmetiquera en Cuero Dacota color negro" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Negro</h3>
+      <p class="cz-colores__p">Elegante y discreto. El que sirve para la oficina y para salir.</p>
+    </div>
+  </div>
+
+  <a class="cz-colores__cta" href="#MainContent">ELEGIR MI COLOR</a>
+</div>

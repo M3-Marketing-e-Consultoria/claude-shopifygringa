@@ -1,0 +1,98 @@
+<div class="cz-oferta">
+  <style>
+    .cz-oferta{
+      box-sizing:border-box;background:var(--cz-ink,#2A1F19);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:48px 20px;text-align:center;
+    }
+    .cz-oferta *,.cz-oferta *::before,.cz-oferta *::after{box-sizing:border-box}
+    .cz-oferta__eyebrow{
+      margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-oferta__title{
+      margin:0 0 14px;font-family:var(--cz-serif,serif);font-size:30px;
+      font-weight:600;line-height:1.18;color:var(--cz-cream-text,#F3E7D6);
+    }
+    .cz-oferta__text{
+      margin:0 auto 22px;max-width:520px;font-size:15px;line-height:1.7;
+      color:var(--cz-cream-text-soft,#C4B4A3);
+    }
+    .cz-oferta__prices{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      flex-wrap:wrap;margin-bottom:18px;
+    }
+    .cz-oferta__was{font-size:16px;color:#9C8B79;text-decoration:line-through}
+    .cz-oferta__now{font-size:36px;font-weight:600;color:var(--cz-cream-text,#F3E7D6);line-height:1.1}
+    .cz-oferta__off{
+      background:#C0392B;color:#fff;font-size:13px;font-weight:700;
+      padding:5px 11px;border-radius:999px;letter-spacing:.04em;
+    }
+    .cz-oferta__cta{
+      display:inline-block;background:var(--cz-green,#16A34A);color:#fff;
+      font-size:16px;font-weight:600;letter-spacing:.06em;text-decoration:none;
+      padding:17px 40px;border-radius:10px;
+    }
+    .cz-oferta__cta:hover{background:var(--cz-green-dark,#12833B)}
+    .cz-oferta__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
+    .cz-oferta__rule{border:0;border-top:1px solid #4A3A2E;max-width:440px;margin:26px auto 18px}
+    .cz-oferta__timerlabel{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--cz-gold,#B8873B);
+    }
+    .cz-oferta__timer{display:flex;justify-content:center;gap:10px}
+    .cz-oferta__unit{min-width:58px}
+    .cz-oferta__num{
+      font-size:26px;font-weight:600;color:var(--cz-cream-text,#F3E7D6);
+      line-height:1;font-variant-numeric:tabular-nums;
+    }
+    .cz-oferta__cap{
+      display:block;margin-top:5px;font-size:11px;letter-spacing:.08em;color:var(--cz-gold,#B8873B);
+    }
+  </style>
+
+  <p class="cz-oferta__eyebrow">Elegancia en cada momento</p>
+  <h2 class="cz-oferta__title">Más que accesorios,<br>historias contigo</h2>
+  <p class="cz-oferta__text">
+    Morral y cosmetiquera en Cuero Dacota Premium, 100% originales.
+    Herrajes dorados, costuras reforzadas y un interior pensado para que
+    todo tenga su lugar.
+  </p>
+
+  <div class="cz-oferta__prices">
+    <span class="cz-oferta__was">$699.000</span>
+    <span class="cz-oferta__now">$159.000</span>
+    <span class="cz-oferta__off">77% OFF</span>
+  </div>
+
+  <a class="cz-oferta__cta" href="#MainContent">COMPRAR AHORA</a>
+  <p class="cz-oferta__note">Envío gratis a toda Colombia · Pago contra entrega</p>
+
+  <hr class="cz-oferta__rule">
+
+  <p class="cz-oferta__timerlabel">El precio de hoy termina en</p>
+  <div class="cz-oferta__timer" id="cz-timer">
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-h>23</span><span class="cz-oferta__cap">HORAS</span></div>
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-m>59</span><span class="cz-oferta__cap">MIN</span></div>
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-s>59</span><span class="cz-oferta__cap">SEG</span></div>
+  </div>
+</div>
+<script>
+(function(){
+  var root = document.getElementById('cz-timer');
+  if (!root || root.dataset.czInit) return;
+  root.dataset.czInit = '1';
+  var h = root.querySelector('[data-h]'), m = root.querySelector('[data-m]'), s = root.querySelector('[data-s]');
+  if (!h || !m || !s) return;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function tick(){
+    var now = new Date();
+    var end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+    var left = Math.max(0, Math.floor((end - now) / 1000));
+    h.textContent = pad(Math.floor(left / 3600));
+    m.textContent = pad(Math.floor(left % 3600 / 60));
+    s.textContent = pad(left % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
