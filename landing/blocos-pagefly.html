@@ -1,11 +1,15 @@
 <!-- ====================================================================
      COZATTI — Morral + Cosmetiquera. Blocos HTML para o PageFly.
-     Botoes de compra abrem o formulario do Releasit COD.
+
+     Os botoes de compra abrem o formulario do Releasit COD clicando no
+     botao flutuante do proprio app (#rsi_buy_now_button). O gatilho esta
+     no atributo onclick do botao, nao num <script> separado, porque o
+     PageFly pode remover tags <script> coladas num elemento HTML.
      ==================================================================== -->
 
 
 <!-- ====================================================================
-     BLOCO 0 — BASE (cole primeiro, uma unica vez)
+     BLOCO 0 — BASE (fontes + cores — cole primeiro, uma unica vez)
      ==================================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,76 +45,6 @@
   .cz-cod__label{font-size:17px;font-weight:600;letter-spacing:.05em;line-height:1.2}
   .cz-cod__sub{display:block;margin:3px 0 0;font-size:12px;font-weight:400;opacity:.9;letter-spacing:0}
 </style>
-
-<script>
-/* =====================================================================
-   Abre o formulario do Releasit COD a partir de qualquer botao que
-   tenha o atributo data-cz-cod.
-
-   COMO FUNCIONA
-   Procura o botao do proprio Releasit no DOM e repassa o clique.
-   Nao usa nenhuma API do app — so o DOM que ele renderiza.
-
-   A busca e por PREFIXO (rsi_), nao por um id fixo, porque o botao
-   muda de id conforme onde o app o renderiza: #rsi_buy_now_button no
-   formulario de produto, outro id no botao fixo do rodape. Qualquer
-   um serve: todos abrem o mesmo formulario.
-
-   NAO usamos as classes (sc-iJKPHa, jsUlpn): sao hashes de
-   styled-components e mudam a cada versao do app.
-
-   Se nada for encontrado, rola ate a caixa de compra — nunca fica morto.
-
-   DIAGNOSTICO: se o botao nao abrir o popup, rode no console da pagina:
-     copy([...document.querySelectorAll('[id*="rsi"],[class*="rsi"]')]
-       .map(e => e.tagName + '#' + e.id + '.' + e.className).join('\n'))
-   e me mande o resultado.
-   ===================================================================== */
-(function () {
-  'use strict';
-
-  function ehClicavel(n){
-    return n.tagName === 'BUTTON' || n.tagName === 'A' || n.getAttribute('role') === 'button';
-  }
-
-  function findReleasitButton(){
-    // 1. o id visto no formulario de produto
-    var direto = document.querySelector('#rsi_buy_now_button');
-    if (direto) return direto;
-
-    // 2. qualquer elemento do Releasit (prefixo rsi_) que seja clicavel,
-    //    ou que contenha um botao — cobre o botao fixo do rodape
-    var nodes = document.querySelectorAll('[id^="rsi_"],[id^="rsi-"],[class*="rsi_"],[class*="rsi-"]');
-    for (var i = 0; i < nodes.length; i++){
-      var n = nodes[i];
-      if (n.hasAttribute('data-cz-cod') || n.closest('[data-cz-cod]')) continue;
-      if (ehClicavel(n)) return n;
-      var dentro = n.querySelector('button,[role="button"]');
-      if (dentro) return dentro;
-    }
-    return null;
-  }
-
-  function fallback(){
-    var main = document.getElementById('MainContent') || document.querySelector('main');
-    if (main && main.scrollIntoView){
-      main.scrollIntoView({ behavior:'smooth', block:'start' });
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  document.addEventListener('click', function (e){
-    var trigger = e.target.closest ? e.target.closest('[data-cz-cod]') : null;
-    if (!trigger) return;
-    e.preventDefault();
-
-    var btn = findReleasitButton();
-    if (btn){ btn.click(); return; }
-    fallback();
-  }, false);
-})();
-</script>
 
 <!-- ====================================================================
      BLOCO 1 — OFERTA
@@ -174,7 +108,7 @@
     <span class="cz-oferta__off">77% OFF</span>
   </div>
 
-  <button type="button" class="cz-cod" data-cz-cod>
+  <button type="button" class="cz-cod" data-cz-cod onclick="var b=document.getElementById('rsi_buy_now_button');if(b){b.click()}else{var m=document.getElementById('MainContent')||document.body;m.scrollIntoView({behavior:'smooth',block:'start'})}">
     <svg class="cz-cod__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
     <span class="cz-cod__label">COMPRAR AHORA<span class="cz-cod__sub">Realiza tu pedido contra entrega</span></span>
   </button>
@@ -466,7 +400,7 @@
     </div>
   </div>
 
-  <button type="button" class="cz-cod" data-cz-cod style="margin-top:24px">
+  <button type="button" class="cz-cod" data-cz-cod onclick="var b=document.getElementById('rsi_buy_now_button');if(b){b.click()}else{var m=document.getElementById('MainContent')||document.body;m.scrollIntoView({behavior:'smooth',block:'start'})}" style="margin-top:24px">
     <svg class="cz-cod__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
     <span class="cz-cod__label">ELEGIR MI COLOR<span class="cz-cod__sub">Realiza tu pedido contra entrega</span></span>
   </button>
@@ -699,7 +633,7 @@
     <span class="cz-cierre__off">77% OFF</span>
   </div>
 
-  <button type="button" class="cz-cod" data-cz-cod>
+  <button type="button" class="cz-cod" data-cz-cod onclick="var b=document.getElementById('rsi_buy_now_button');if(b){b.click()}else{var m=document.getElementById('MainContent')||document.body;m.scrollIntoView({behavior:'smooth',block:'start'})}">
     <svg class="cz-cod__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
     <span class="cz-cod__label">COMPRAR AHORA<span class="cz-cod__sub">Realiza tu pedido contra entrega</span></span>
   </button>
