@@ -1,0 +1,46 @@
+<div class="cz-test">
+  <style>
+    .cz-test{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-test *,.cz-test *::before,.cz-test *::after{box-sizing:border-box}
+    .cz-test__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#C08B3E);
+    }
+    .cz-test__title{
+      margin:0 0 8px;font-family:var(--cz-serif,serif);font-size:31px;font-weight:700;
+      line-height:1.15;color:var(--cz-ink,#241A14);
+    }
+    .cz-test__sub{margin:0 0 24px;font-size:14px;color:var(--cz-ink-soft,#6B5D52)}
+    .cz-test__grid{display:grid;gap:14px}
+    .cz-test__card{background:#fff;border-radius:14px;padding:24px 20px;text-align:left}
+    .cz-test__stars{font-size:14px;letter-spacing:2px;color:#E8A33D;margin-bottom:10px}
+    .cz-test__quote{margin:0 0 12px;font-size:15px;line-height:1.7;color:var(--cz-ink,#241A14)}
+    .cz-test__who{margin:0;font-size:13px;font-weight:600;color:var(--cz-gold,#C08B3E)}
+    @media (min-width:768px){ .cz-test__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-test__eyebrow">Lo que dicen nuestras clientas</p>
+  <h2 class="cz-test__title">Elegido por miles<br>de mujeres felices</h2>
+  <p class="cz-test__sub">Confían en nosotros, confía tú también.</p>
+
+  <div class="cz-test__grid">
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“REEMPLAZA ESTE TEXTO con una reseña real de una clienta.”</p>
+      <p class="cz-test__who">— Nombre A.</p>
+    </div>
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“REEMPLAZA ESTE TEXTO con una reseña real de una clienta.”</p>
+      <p class="cz-test__who">— Nombre B.</p>
+    </div>
+    <div class="cz-test__card">
+      <div class="cz-test__stars">★★★★★</div>
+      <p class="cz-test__quote">“REEMPLAZA ESTE TEXTO con una reseña real de una clienta.”</p>
+      <p class="cz-test__who">— Nombre C.</p>
+    </div>
+  </div>
+</div>

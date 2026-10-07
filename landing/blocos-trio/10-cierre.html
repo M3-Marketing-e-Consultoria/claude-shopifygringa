@@ -1,0 +1,65 @@
+<div class="cz-cierre">
+  <style>
+    .cz-cierre{
+      box-sizing:border-box;background:var(--cz-ink,#241A14);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-cierre *,.cz-cierre *::before,.cz-cierre *::after{box-sizing:border-box}
+    .cz-cierre img{
+      width:100%;max-width:420px;aspect-ratio:1/1;object-fit:cover;
+      border-radius:16px;display:block;margin:0 auto 20px;
+    }
+    .cz-cierre__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#C08B3E);
+    }
+    .cz-cierre__title{
+      margin:0 0 12px;font-family:var(--cz-serif,serif);font-size:32px;font-weight:700;
+      line-height:1.15;color:var(--cz-cream-text,#F5E9D7);
+    }
+    .cz-cierre__text{
+      margin:0 auto 20px;max-width:480px;font-size:15px;line-height:1.7;
+      color:var(--cz-cream-text-soft,#C9B9A4);
+    }
+    .cz-cierre__was{margin:0 0 6px;font-size:15px;color:#9C8B79}
+    .cz-cierre__was s{text-decoration-color:var(--cz-red,#B3261E)}
+    .cz-cierre__prices{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      flex-wrap:wrap;margin-bottom:10px;
+    }
+    .cz-cierre__now{font-size:42px;font-weight:700;color:#fff;line-height:1}
+    .cz-cierre__off{
+      background:var(--cz-red,#B3261E);color:#fff;font-size:13px;font-weight:700;
+      padding:6px 12px;border-radius:8px;letter-spacing:.04em;line-height:1.25;
+    }
+    .cz-cierre__off small{display:block;font-size:10px;font-weight:500;opacity:.9}
+    .cz-cierre__save{
+      display:inline-block;margin:0 0 22px;padding:7px 16px;border-radius:8px;
+      background:var(--cz-gold-light,#E8C57A);color:#3A2A18;
+      font-size:14px;font-weight:700;
+    }
+    .cz-cierre__note{margin:14px 0 0;font-size:12px;color:#9C8B79;line-height:1.7}
+  </style>
+
+  <!-- ⬇⬇ CAMBIA ESTA URL por la foto del trío completo ⬇⬇ -->
+  <img src="PEGA_AQUI_LA_URL_DE_LA_FOTO_DEL_TRIO"
+       alt="Trío Vélez completo en cuero: bolso de mano, carriel y cosmetiquera"
+       loading="lazy" width="800" height="800">
+
+  <p class="cz-cierre__eyebrow">Últimas unidades</p>
+  <h2 class="cz-cierre__title">Llévate el trío completo hoy</h2>
+  <p class="cz-cierre__text">Bolso de mano, bolso carriel y cosmetiquera en cuero, más la tula de regalo. En el color que elijas y pagando cuando lo recibas en tu casa.</p>
+
+  <p class="cz-cierre__was">Antes <s>$650.900</s></p>
+  <div class="cz-cierre__prices">
+    <span class="cz-cierre__now">$187.900</span>
+    <span class="cz-cierre__off">-71%<small>DESCUENTO</small></span>
+  </div>
+  <span class="cz-cierre__save">¡Ahorras $463.000!</span>
+
+  <button type="button" class="cz-cod" data-cz-cod onclick="var b=document.getElementById('rsi_buy_now_button');if(b){b.click()}else{var m=document.getElementById('MainContent')||document.body;m.scrollIntoView({behavior:'smooth',block:'start'})}">
+    <svg class="cz-cod__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    <span class="cz-cod__label">¡QUIERO EL MÍO AHORA!<span class="cz-cod__sub">Realiza tu pedido contra entrega</span></span>
+  </button>
+  <p class="cz-cierre__note">Envío gratis 24/48 h · Pago contra entrega · Cambio fácil · 5 años de garantía</p>
+</div>

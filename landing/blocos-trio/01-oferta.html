@@ -1,0 +1,115 @@
+<div class="cz-oferta">
+  <style>
+    .cz-oferta{
+      box-sizing:border-box;background:var(--cz-ink,#241A14);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:46px 20px;text-align:center;
+    }
+    .cz-oferta *,.cz-oferta *::before,.cz-oferta *::after{box-sizing:border-box}
+    .cz-oferta__flag{
+      display:inline-block;margin:0 0 16px;padding:6px 14px;border-radius:999px;
+      border:1px solid #5A4634;font-size:11px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--cz-gold-light,#E8C57A);
+    }
+    .cz-oferta__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--cz-gold,#C08B3E);
+    }
+    .cz-oferta__title{
+      margin:0 0 6px;font-family:var(--cz-serif,serif);font-size:38px;
+      font-weight:700;line-height:1.08;color:var(--cz-cream-text,#F5E9D7);
+    }
+    .cz-oferta__sub{
+      margin:0 0 16px;font-family:var(--cz-serif,serif);font-size:22px;font-style:italic;
+      font-weight:500;color:var(--cz-gold-light,#E8C57A);
+    }
+    .cz-oferta__text{
+      margin:0 auto 24px;max-width:520px;font-size:15px;line-height:1.7;
+      color:var(--cz-cream-text-soft,#C9B9A4);
+    }
+    .cz-oferta__was{margin:0 0 6px;font-size:15px;color:#9C8B79}
+    .cz-oferta__was s{text-decoration-color:var(--cz-red,#B3261E)}
+    .cz-oferta__prices{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      flex-wrap:wrap;margin-bottom:10px;
+    }
+    .cz-oferta__now{font-size:42px;font-weight:700;color:#fff;line-height:1}
+    .cz-oferta__off{
+      background:var(--cz-red,#B3261E);color:#fff;font-size:13px;font-weight:700;
+      padding:6px 12px;border-radius:8px;letter-spacing:.04em;line-height:1.25;
+    }
+    .cz-oferta__off small{display:block;font-size:10px;font-weight:500;opacity:.9}
+    .cz-oferta__save{
+      display:inline-block;margin:0 0 22px;padding:7px 16px;border-radius:8px;
+      background:var(--cz-gold-light,#E8C57A);color:#3A2A18;
+      font-size:14px;font-weight:700;letter-spacing:.02em;
+    }
+    .cz-oferta__note{margin:14px 0 0;font-size:12px;color:#9C8B79}
+    .cz-oferta__rule{border:0;border-top:1px solid #4A3A2E;max-width:440px;margin:26px auto 18px}
+    .cz-oferta__timerlabel{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--cz-gold,#C08B3E);
+    }
+    .cz-oferta__timer{display:flex;justify-content:center;gap:10px}
+    .cz-oferta__unit{min-width:58px}
+    .cz-oferta__num{
+      font-size:26px;font-weight:600;color:var(--cz-cream-text,#F5E9D7);
+      line-height:1;font-variant-numeric:tabular-nums;
+    }
+    .cz-oferta__cap{
+      display:block;margin-top:5px;font-size:11px;letter-spacing:.08em;color:var(--cz-gold,#C08B3E);
+    }
+  </style>
+
+  <span class="cz-oferta__flag">🚚 Envío gratis a toda Colombia</span>
+
+  <p class="cz-oferta__eyebrow">Oferta imperdible</p>
+  <h2 class="cz-oferta__title">Trío Vélez<br>Dama en Cuero</h2>
+  <p class="cz-oferta__sub">para mujeres que merecen lo mejor</p>
+  <p class="cz-oferta__text">
+    Tres piezas en cuero, pensadas para combinar entre sí: bolso de mano,
+    bolso carriel y cosmetiquera. Elegancia, calidad y versatilidad para
+    cada momento de tu vida.
+  </p>
+
+  <p class="cz-oferta__was">De <s>$650.900</s></p>
+  <div class="cz-oferta__prices">
+    <span class="cz-oferta__now">$187.900</span>
+    <span class="cz-oferta__off">-71%<small>DESCUENTO</small></span>
+  </div>
+  <span class="cz-oferta__save">¡Ahorras $463.000!</span>
+
+  <button type="button" class="cz-cod" data-cz-cod onclick="var b=document.getElementById('rsi_buy_now_button');if(b){b.click()}else{var m=document.getElementById('MainContent')||document.body;m.scrollIntoView({behavior:'smooth',block:'start'})}">
+    <svg class="cz-cod__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    <span class="cz-cod__label">COMPRA AHORA<span class="cz-cod__sub">Realiza tu pedido contra entrega</span></span>
+  </button>
+  <p class="cz-oferta__note">Pago contra entrega · Envío 24/48 horas · 5 años de garantía</p>
+
+  <hr class="cz-oferta__rule">
+
+  <p class="cz-oferta__timerlabel">Por tiempo limitado · termina en</p>
+  <div class="cz-oferta__timer" id="cz-timer">
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-h>23</span><span class="cz-oferta__cap">HORAS</span></div>
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-m>59</span><span class="cz-oferta__cap">MIN</span></div>
+    <div class="cz-oferta__unit"><span class="cz-oferta__num" data-s>59</span><span class="cz-oferta__cap">SEG</span></div>
+  </div>
+</div>
+<script>
+(function(){
+  var root = document.getElementById('cz-timer');
+  if (!root || root.dataset.czInit) return;
+  root.dataset.czInit = '1';
+  var h = root.querySelector('[data-h]'), m = root.querySelector('[data-m]'), s = root.querySelector('[data-s]');
+  if (!h || !m || !s) return;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function tick(){
+    var now = new Date();
+    var end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+    var left = Math.max(0, Math.floor((end - now) / 1000));
+    h.textContent = pad(Math.floor(left / 3600));
+    m.textContent = pad(Math.floor(left % 3600 / 60));
+    s.textContent = pad(left % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>

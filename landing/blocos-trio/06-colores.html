@@ -1,0 +1,57 @@
+<div class="cz-colores">
+  <style>
+    .cz-colores{
+      box-sizing:border-box;background:var(--cz-cream,#FAF6F0);
+      font-family:var(--cz-sans,'Jost',sans-serif);padding:52px 20px;text-align:center;
+    }
+    .cz-colores *,.cz-colores *::before,.cz-colores *::after{box-sizing:border-box}
+    .cz-colores__eyebrow{
+      margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--cz-gold,#C08B3E);
+    }
+    .cz-colores__title{
+      margin:0 0 24px;font-family:var(--cz-serif,serif);font-size:32px;
+      font-weight:700;line-height:1.15;color:var(--cz-ink,#241A14);
+    }
+    .cz-colores__grid{display:grid;gap:16px}
+    .cz-colores__card{background:#fff;border-radius:16px;padding:16px 16px 24px}
+    .cz-colores__card img{
+      width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block;margin-bottom:12px;
+    }
+    .cz-colores__h{
+      margin:0 0 6px;font-family:var(--cz-serif,serif);font-size:25px;
+      font-weight:700;color:var(--cz-ink,#241A14);
+    }
+    .cz-colores__p{margin:0;font-size:14px;line-height:1.6;color:var(--cz-ink-soft,#6B5D52)}
+    @media (min-width:768px){ .cz-colores__grid{grid-template-columns:repeat(3,1fr)} }
+  </style>
+
+  <p class="cz-colores__eyebrow">Elige el tuyo</p>
+  <h2 class="cz-colores__title">Tres colores,<br>un solo estilo</h2>
+
+  <div class="cz-colores__grid">
+    <div class="cz-colores__card">
+      <!-- ⬇⬇ CAMBIA ESTA URL por la foto del trío MARRON ⬇⬇ -->
+      <img src="PEGA_AQUI_LA_URL_DEL_COLOR_MARRON" alt="Trío Vélez en cuero color marrón" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Marrón</h3>
+      <p class="cz-colores__p">Cálido y con carácter. El que la gente te va a preguntar dónde lo compraste.</p>
+    </div>
+    <div class="cz-colores__card">
+      <!-- ⬇⬇ CAMBIA ESTA URL por la foto del trío AMARILLO ⬇⬇ -->
+      <img src="PEGA_AQUI_LA_URL_DEL_COLOR_AMARILLO" alt="Trío Vélez en cuero color amarillo" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Amarillo</h3>
+      <p class="cz-colores__p">Luminoso y distinto. Para la que no quiere pasar desapercibida.</p>
+    </div>
+    <div class="cz-colores__card">
+      <!-- ⬇⬇ CAMBIA ESTA URL por la foto del trío NEGRO ⬇⬇ -->
+      <img src="PEGA_AQUI_LA_URL_DEL_COLOR_NEGRO" alt="Trío Vélez en cuero color negro" loading="lazy" width="800" height="800">
+      <h3 class="cz-colores__h">Negro</h3>
+      <p class="cz-colores__p">Elegante y discreto. El que sirve para la oficina y para salir.</p>
+    </div>
+  </div>
+
+  <button type="button" class="cz-cod" data-cz-cod onclick="var b=document.getElementById('rsi_buy_now_button');if(b){b.click()}else{var m=document.getElementById('MainContent')||document.body;m.scrollIntoView({behavior:'smooth',block:'start'})}" style="margin-top:24px">
+    <svg class="cz-cod__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    <span class="cz-cod__label">ELEGIR MI COLOR<span class="cz-cod__sub">Realiza tu pedido contra entrega</span></span>
+  </button>
+</div>
