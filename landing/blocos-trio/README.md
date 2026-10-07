@@ -8,7 +8,7 @@ Reemplazan a `landing/blocos/`, que estaba escrito para OTRO producto
 
 | # | Archivo | Qué es |
 |---|---|---|
-| 0 | `00-base.html` | Fuentes, colores y estilo del botón. **Va primero.** |
+| 0 | `00-base.html` | Fuentes y colores. **Va primero.** |
 | 1 | `01-oferta.html` | Hero, precio, contador |
 | 2 | `02-garantias.html` | 4 sellos |
 | 3 | `03-problema.html` | Comparativa vs bolsos comunes |
@@ -63,3 +63,9 @@ $650.900. Si el precio tachado correcto es $659.900, el ahorro es $472.000.
 ancho de celular (430 px), con las fuentes incrustadas y recuadros beige
 donde faltan las fotos. Es un archivo generado: se abre en cualquier
 navegador, no necesita internet.
+
+## Sin botones
+
+Los bloques no traen ningún botón, ni `<button>`, ni `onclick`, ni
+referencia a `#rsi_buy_now_button`. La compra va por el botón flotante
+que la tienda ya pone en la página.
