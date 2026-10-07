@@ -45,3 +45,10 @@ Están marcadas con comentarios HTML en los archivos.
 Los creativos dicen **de $659.900**; la página en vivo dice **$650.900**.
 La cuenta solo cuadra con $650.900 ($187.900 + $463.000). Los bloques usan
 $650.900. Si el precio tachado correcto es $659.900, el ahorro es $472.000.
+
+## Preview
+
+`landing/preview-trio.html` muestra los 11 bloques uno debajo del otro a
+ancho de celular (430 px), con las fuentes incrustadas y recuadros beige
+donde faltan las fotos. Es un archivo generado: se abre en cualquier
+navegador, no necesita internet.
