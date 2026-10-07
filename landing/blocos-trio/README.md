@@ -17,7 +17,7 @@ Reemplazan a `landing/blocos/`, que estaba escrito para OTRO producto
 | 6 | `06-galeria.html` | Galería 2×2 — fotos 7, 8, 9, 10 |
 | 7 | `07-colores.html` | Marrón / Amarillo / Negro + CTA — fotos 2, 3, 4 |
 | 8 | `08-regalo.html` | Una pieza para cada plan + regalo — foto 6 |
-| 9 | `09-testimonios.html` | Reseñas (vacío a propósito) |
+| 9 | `09-testimonios.html` | Reseñas — **ficticias, de relleno** |
 | 10 | `10-faq.html` | Preguntas frecuentes |
 | 11 | `11-cierre.html` | CTA final — foto 11 |
 
@@ -49,7 +49,9 @@ se asignaron a los tres colores.
 
 ## Lo que falta llenar
 
-3 reseñas (`REEMPLAZA ESTE TEXTO` en `09-testimonios.html`).
+Las tres reseñas de `09-testimonios.html` son inventadas, puestas solo
+para ver el bloque lleno. Hay un comentario HTML dentro del archivo que
+lo dice. Cambiarlas por reseñas reales antes de publicar la página.
 
 ## Discrepancia de precio sin resolver
 
